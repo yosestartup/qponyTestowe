@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B183B4052416AAD600FD1485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B4042416AAD600FD1485 /* AppDelegate.swift */; };
-		B183B4072416AAD600FD1485 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B4062416AAD600FD1485 /* SceneDelegate.swift */; };
 		B183B40E2416AADD00FD1485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B183B40D2416AADD00FD1485 /* Assets.xcassets */; };
 		B183B4112416AADD00FD1485 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B183B40F2416AADD00FD1485 /* LaunchScreen.storyboard */; };
 		B183B42F24177E0C00FD1485 /* NetworkAccountRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B41C24177E0C00FD1485 /* NetworkAccountRequestProtocol.swift */; };
@@ -17,12 +16,12 @@
 		B183B43624177E0C00FD1485 /* NetworkRequestWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B42724177E0C00FD1485 /* NetworkRequestWrapper.swift */; };
 		B183B43724177E0C00FD1485 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B42A24177E0C00FD1485 /* NetworkRequest.swift */; };
 		B183B43824177E0C00FD1485 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B42C24177E0C00FD1485 /* NetworkError.swift */; };
+		B183B43B2417829500FD1485 /* DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B43A2417829500FD1485 /* DIResolver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B183B4012416AAD600FD1485 /* QponyTestowe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QponyTestowe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B183B4042416AAD600FD1485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B183B4062416AAD600FD1485 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B183B40D2416AADD00FD1485 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B183B4102416AADD00FD1485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B183B4122416AADD00FD1485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		B183B42724177E0C00FD1485 /* NetworkRequestWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestWrapper.swift; sourceTree = "<group>"; };
 		B183B42A24177E0C00FD1485 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		B183B42C24177E0C00FD1485 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		B183B43A2417829500FD1485 /* DIResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIResolver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +64,11 @@
 		B183B4032416AAD600FD1485 /* QponyTestowe */ = {
 			isa = PBXGroup;
 			children = (
+				B183B4392417828000FD1485 /* Assembly */,
 				B183B41824177E0C00FD1485 /* DataLayer */,
 				B183B41B24177E0C00FD1485 /* NetworkLayer */,
 				B183B42624177E0C00FD1485 /* ServiceLayer */,
 				B183B4042416AAD600FD1485 /* AppDelegate.swift */,
-				B183B4062416AAD600FD1485 /* SceneDelegate.swift */,
 				B183B40D2416AADD00FD1485 /* Assets.xcassets */,
 				B183B40F2416AADD00FD1485 /* LaunchScreen.storyboard */,
 				B183B4122416AADD00FD1485 /* Info.plist */,
@@ -151,6 +151,14 @@
 			path = NetworkError;
 			sourceTree = "<group>";
 		};
+		B183B4392417828000FD1485 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				B183B43A2417829500FD1485 /* DIResolver.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -226,9 +234,9 @@
 				B183B4052416AAD600FD1485 /* AppDelegate.swift in Sources */,
 				B183B42F24177E0C00FD1485 /* NetworkAccountRequestProtocol.swift in Sources */,
 				B183B43524177E0C00FD1485 /* NetworkRequestProvider.swift in Sources */,
+				B183B43B2417829500FD1485 /* DIResolver.swift in Sources */,
 				B183B43624177E0C00FD1485 /* NetworkRequestWrapper.swift in Sources */,
 				B183B43024177E0C00FD1485 /* NetworkProvider+Currency.swift in Sources */,
-				B183B4072416AAD600FD1485 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
