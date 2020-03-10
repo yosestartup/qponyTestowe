@@ -12,20 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var networkProvider: NetworkRequestProvider! = nil
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        let networkWrapper = NetworkRequestWrapper()
-        self.networkProvider = NetworkRequestProvider(networkWrapper: networkWrapper)
-
-        let resolver = DIResolver(networkController: self.networkProvider)
-        let currenciesController = UIViewController()
-        let navi = UINavigationController(rootViewController: currenciesController)
-        
-        window?.rootViewController = navi
-        window?.makeKeyAndVisible()
         return true
     }
 
