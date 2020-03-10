@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD5643B2AB697526E7999CFF /* Pods_QponyTestowe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFC1A1FE434769B5ED0E2C57 /* Pods_QponyTestowe.framework */; };
 		B183B4052416AAD600FD1485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B4042416AAD600FD1485 /* AppDelegate.swift */; };
 		B183B40E2416AADD00FD1485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B183B40D2416AADD00FD1485 /* Assets.xcassets */; };
 		B183B4112416AADD00FD1485 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B183B40F2416AADD00FD1485 /* LaunchScreen.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5CB2D5230C0E69CFD99631F5 /* Pods-QponyTestowe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QponyTestowe.release.xcconfig"; path = "Target Support Files/Pods-QponyTestowe/Pods-QponyTestowe.release.xcconfig"; sourceTree = "<group>"; };
 		B183B4012416AAD600FD1485 /* QponyTestowe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QponyTestowe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B183B4042416AAD600FD1485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B183B40D2416AADD00FD1485 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +56,8 @@
 		B183B4592417882D00FD1485 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B183B45B24178A6A00FD1485 /* Currencies+DIResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currencies+DIResolver.swift"; sourceTree = "<group>"; };
 		B183B45D24178D4C00FD1485 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DFC1A1FE434769B5ED0E2C57 /* Pods_QponyTestowe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QponyTestowe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE343C27860BA18F42FE865D /* Pods-QponyTestowe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QponyTestowe.debug.xcconfig"; path = "Target Support Files/Pods-QponyTestowe/Pods-QponyTestowe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,17 +65,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD5643B2AB697526E7999CFF /* Pods_QponyTestowe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		094F14D309114E29A9A790AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE343C27860BA18F42FE865D /* Pods-QponyTestowe.debug.xcconfig */,
+				5CB2D5230C0E69CFD99631F5 /* Pods-QponyTestowe.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		41EDEDACF334E2F536D7B086 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFC1A1FE434769B5ED0E2C57 /* Pods_QponyTestowe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B183B3F82416AAD600FD1485 = {
 			isa = PBXGroup;
 			children = (
 				B183B4032416AAD600FD1485 /* QponyTestowe */,
 				B183B4022416AAD600FD1485 /* Products */,
+				094F14D309114E29A9A790AF /* Pods */,
+				41EDEDACF334E2F536D7B086 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,8 +212,8 @@
 		B183B43C2417852200FD1485 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B183B44F2417878D00FD1485 /* BaseControllers */,
 				B183B43D2417852B00FD1485 /* Currencies */,
+				B183B44F2417878D00FD1485 /* BaseControllers */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -264,9 +289,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B183B4152416AADD00FD1485 /* Build configuration list for PBXNativeTarget "QponyTestowe" */;
 			buildPhases = (
+				2EA14973931B2631CF080740 /* [CP] Check Pods Manifest.lock */,
 				B183B3FD2416AAD600FD1485 /* Sources */,
 				B183B3FE2416AAD600FD1485 /* Frameworks */,
 				B183B3FF2416AAD600FD1485 /* Resources */,
+				9863B6F6D535073704EC1F28 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,6 +348,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2EA14973931B2631CF080740 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QponyTestowe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9863B6F6D535073704EC1F28 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QponyTestowe/Pods-QponyTestowe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QponyTestowe/Pods-QponyTestowe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QponyTestowe/Pods-QponyTestowe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B183B3FD2416AAD600FD1485 /* Sources */ = {
@@ -479,6 +548,7 @@
 		};
 		B183B4162416AADD00FD1485 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE343C27860BA18F42FE865D /* Pods-QponyTestowe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -497,6 +567,7 @@
 		};
 		B183B4172416AADD00FD1485 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CB2D5230C0E69CFD99631F5 /* Pods-QponyTestowe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
