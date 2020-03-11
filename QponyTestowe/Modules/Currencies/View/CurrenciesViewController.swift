@@ -17,7 +17,6 @@ class CurrenciesViewController: BaseViewController {
     private let refreshControl = UIRefreshControl()
     private var dataSource: CurrenciesDataSource!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createUI()
@@ -35,57 +34,80 @@ class CurrenciesViewController: BaseViewController {
         self.segmentedControl.addTarget(self, action: #selector(changeTable), for: .valueChanged)
         
         self.refreshControl.addTarget(self, action: #selector(refreshDidPulled), for: .valueChanged)
-        
+   
         self.dataSource = CurrenciesDataSource()
         self.dataSource.delegate = self
         
         self.currenciesTable.delegate = self
         self.currenciesTable.dataSource = self
         self.currenciesTable.refreshControl = self.refreshControl
+        self.currenciesTable.separatorStyle = .none
+        self.currenciesTable.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         self.currenciesTable.register(CurrenciesTableCell.self, forCellReuseIdentifier: "CurrenciesTableCell")
         
         self.view.addSubview(self.segmentedControl)
         self.view.addSubview(self.currenciesTable)
         
         self.segmentedControl.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(5)
-            make.left.equalToSuperview().offset(20)
-            make.right.equalToSuperview().offset(-20)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(5.withRatio())
+            make.left.equalToSuperview().offset(20.withRatio())
+            make.right.equalToSuperview().offset(-20.withRatio())
             make.centerX.equalToSuperview()
         }
         
         self.currenciesTable.snp.makeConstraints { (make) in
-            make.top.equalTo(self.segmentedControl.snp.bottom).offset(5)
+            make.top.equalTo(self.segmentedControl.snp.bottom).offset(5.withRatio())
             make.left.right.bottom.equalToSuperview()
         }
-        
     }
     
     @objc private func changeTable(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case 1:
+        case 0:
             print("A")
-        case 2:
+        case 1:
             print("B")
-        case 3:
+        case 2:
             print("C")
         default:
-            print("C")
+            print("Fail")
         }
     }
     
     @objc private func refreshDidPulled(sender: UIRefreshControl) {
-        
+       self.presenter.reloadData()
     }
 }
 
 extension CurrenciesViewController: CurrenciesViewProtocol {
+    func insertCurrencies(models: [CurrencyABModel]) {
+       self.dataSource.insertItems(models)
+    }
     
+    func startLoading() {
+       if !self.refreshControl.isRefreshing {
+           self.refreshControl.beginRefreshing()
+       }
+    }
+
+    func stopLoading() {
+       if self.refreshControl.isRefreshing {
+            self.refreshControl.endRefreshing()
+        }
+    }
 }
 
 extension CurrenciesViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.dataSource.getNumberOfSections()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120.withRatio()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,3 +125,6 @@ extension CurrenciesViewController: CurrenciesDataSourceDelegate {
         self.currenciesTable.reloadData()
     }
 }
+
+
+

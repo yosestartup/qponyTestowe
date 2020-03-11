@@ -9,12 +9,16 @@
 import UIKit
 
 protocol CurrenciesViewProtocol: class {
+    func insertCurrencies(models: [CurrencyABModel])
+    func startLoading()
+    func stopLoading()
 }
 
 protocol CurrenciesWireFrameProtocol: class {
 }
 
 protocol CurrenciesPresenterProtocol: class {
+    func reloadData()
 }
 
 protocol CurrenciesInteractorProtocol: class {
