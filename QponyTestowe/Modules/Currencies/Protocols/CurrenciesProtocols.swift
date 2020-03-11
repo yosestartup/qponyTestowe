@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CurrenciesViewProtocol: class {
-    func insertCurrencies(models: [CurrencyABModel])
+    func insertCurrencies(models: [CurrencyAB_Model])
     func startLoading()
     func stopLoading()
 }

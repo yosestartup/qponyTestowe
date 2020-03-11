@@ -80,7 +80,7 @@ class CurrenciesViewController: BaseViewController {
 }
 
 extension CurrenciesViewController: CurrenciesViewProtocol {
-    func insertCurrencies(models: [CurrencyABModel]) {
+    func insertCurrencies(models: [CurrencyAB_Model]) {
        self.dataSource.insertItems(models)
     }
     

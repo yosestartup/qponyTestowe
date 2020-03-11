@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct ListABApiResponseModel: Codable {
+struct ListAB_ApiResponseModel: Codable {
     let table: String
     let no: String
     let effectiveDate: String
-    let rates: [CurrencyAB]
+    let rates: [CurrencyAB_ApiResponseModel]
 }

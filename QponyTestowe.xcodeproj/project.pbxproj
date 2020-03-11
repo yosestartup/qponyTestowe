@@ -24,7 +24,7 @@
 		B183B45A2417882D00FD1485 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B4592417882D00FD1485 /* BaseViewController.swift */; };
 		B183B45C24178A6A00FD1485 /* Currencies+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B45B24178A6A00FD1485 /* Currencies+DIResolver.swift */; };
 		B183B45E24178D4C00FD1485 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B45D24178D4C00FD1485 /* SceneDelegate.swift */; };
-		B183B4622417EC3300FD1485 /* CurrencyABModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B4612417EC3300FD1485 /* CurrencyABModel.swift */; };
+		B183B4622417EC3300FD1485 /* CurrencyAB_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B4612417EC3300FD1485 /* CurrencyAB_Model.swift */; };
 		B183B47324186EF100FD1485 /* CurrenciesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B46824186EF100FD1485 /* CurrenciesPresenter.swift */; };
 		B183B47424186EF100FD1485 /* CurrenciesWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B46A24186EF100FD1485 /* CurrenciesWireFrame.swift */; };
 		B183B47524186EF100FD1485 /* CurrenciesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B46C24186EF100FD1485 /* CurrenciesDataSource.swift */; };
@@ -34,9 +34,13 @@
 		B183B47924186EF100FD1485 /* CurrenciesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B47224186EF100FD1485 /* CurrenciesInteractor.swift */; };
 		B183B47B24187EC600FD1485 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B47A24187EC600FD1485 /* ColorManager.swift */; };
 		B183B47D2418E68B00FD1485 /* ConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B47C2418E68B00FD1485 /* ConstraintExtension.swift */; };
-		B183B47F24190AA400FD1485 /* CurrencyCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B47E24190AA400FD1485 /* CurrencyCModel.swift */; };
-		B183B48324191DDA00FD1485 /* ABListApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B48224191DDA00FD1485 /* ABListApiResponseModel.swift */; };
-		B183B48524191DEE00FD1485 /* CListApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B48424191DEE00FD1485 /* CListApiResponseModel.swift */; };
+		B183B47F24190AA400FD1485 /* CurrencyC_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B47E24190AA400FD1485 /* CurrencyC_Model.swift */; };
+		B183B48324191DDA00FD1485 /* ListAB_ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B48224191DDA00FD1485 /* ListAB_ApiResponseModel.swift */; };
+		B183B48524191DEE00FD1485 /* ListC_ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B48424191DEE00FD1485 /* ListC_ApiResponseModel.swift */; };
+		B183B487241920F900FD1485 /* CurrencyAB_ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B486241920F900FD1485 /* CurrencyAB_ApiResponseModel.swift */; };
+		B183B4892419210800FD1485 /* CurrencyC_ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B4882419210800FD1485 /* CurrencyC_ApiResponseModel.swift */; };
+		B183B48C2419223700FD1485 /* ListAB_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B48B2419223700FD1485 /* ListAB_Model.swift */; };
+		B183B48E2419224200FD1485 /* ListC_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B48D2419224200FD1485 /* ListC_Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +63,7 @@
 		B183B4592417882D00FD1485 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B183B45B24178A6A00FD1485 /* Currencies+DIResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currencies+DIResolver.swift"; sourceTree = "<group>"; };
 		B183B45D24178D4C00FD1485 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B183B4612417EC3300FD1485 /* CurrencyABModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyABModel.swift; sourceTree = "<group>"; };
+		B183B4612417EC3300FD1485 /* CurrencyAB_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyAB_Model.swift; sourceTree = "<group>"; };
 		B183B46824186EF100FD1485 /* CurrenciesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesPresenter.swift; sourceTree = "<group>"; };
 		B183B46A24186EF100FD1485 /* CurrenciesWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesWireFrame.swift; sourceTree = "<group>"; };
 		B183B46C24186EF100FD1485 /* CurrenciesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesDataSource.swift; sourceTree = "<group>"; };
@@ -69,9 +73,13 @@
 		B183B47224186EF100FD1485 /* CurrenciesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesInteractor.swift; sourceTree = "<group>"; };
 		B183B47A24187EC600FD1485 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		B183B47C2418E68B00FD1485 /* ConstraintExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtension.swift; sourceTree = "<group>"; };
-		B183B47E24190AA400FD1485 /* CurrencyCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCModel.swift; sourceTree = "<group>"; };
-		B183B48224191DDA00FD1485 /* ABListApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ABListApiResponseModel.swift; path = QponyTestowe/DataLayer/BusinessModels/ABListApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
-		B183B48424191DEE00FD1485 /* CListApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CListApiResponseModel.swift; path = QponyTestowe/DataLayer/BusinessModels/CListApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
+		B183B47E24190AA400FD1485 /* CurrencyC_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyC_Model.swift; sourceTree = "<group>"; };
+		B183B48224191DDA00FD1485 /* ListAB_ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListAB_ApiResponseModel.swift; path = QponyTestowe/NetworkLayer/ResponseModels/Currency/ListAB_ApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
+		B183B48424191DEE00FD1485 /* ListC_ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListC_ApiResponseModel.swift; path = QponyTestowe/NetworkLayer/ResponseModels/Currency/ListC_ApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
+		B183B486241920F900FD1485 /* CurrencyAB_ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyAB_ApiResponseModel.swift; path = QponyTestowe/NetworkLayer/ResponseModels/Currency/CurrencyAB_ApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
+		B183B4882419210800FD1485 /* CurrencyC_ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyC_ApiResponseModel.swift; path = QponyTestowe/NetworkLayer/ResponseModels/Currency/CurrencyC_ApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
+		B183B48B2419223700FD1485 /* ListAB_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAB_Model.swift; sourceTree = "<group>"; };
+		B183B48D2419224200FD1485 /* ListC_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListC_Model.swift; sourceTree = "<group>"; };
 		DFC1A1FE434769B5ED0E2C57 /* Pods_QponyTestowe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QponyTestowe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE343C27860BA18F42FE865D /* Pods-QponyTestowe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QponyTestowe.debug.xcconfig"; path = "Target Support Files/Pods-QponyTestowe/Pods-QponyTestowe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,8 +188,7 @@
 		B183B42224177E0C00FD1485 /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
-				B183B48224191DDA00FD1485 /* ABListApiResponseModel.swift */,
-				B183B48424191DEE00FD1485 /* CListApiResponseModel.swift */,
+				B183B48F2419351600FD1485 /* Currency */,
 			);
 			path = ResponseModels;
 			sourceTree = "<group>";
@@ -252,8 +259,7 @@
 		B183B4632417EC4700FD1485 /* BusinessModels */ = {
 			isa = PBXGroup;
 			children = (
-				B183B4612417EC3300FD1485 /* CurrencyABModel.swift */,
-				B183B47E24190AA400FD1485 /* CurrencyCModel.swift */,
+				B183B48A2419221A00FD1485 /* Currency */,
 			);
 			path = BusinessModels;
 			sourceTree = "<group>";
@@ -310,6 +316,28 @@
 				B183B47224186EF100FD1485 /* CurrenciesInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		B183B48A2419221A00FD1485 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				B183B4612417EC3300FD1485 /* CurrencyAB_Model.swift */,
+				B183B47E24190AA400FD1485 /* CurrencyC_Model.swift */,
+				B183B48B2419223700FD1485 /* ListAB_Model.swift */,
+				B183B48D2419224200FD1485 /* ListC_Model.swift */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
+		B183B48F2419351600FD1485 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				B183B48224191DDA00FD1485 /* ListAB_ApiResponseModel.swift */,
+				B183B48424191DEE00FD1485 /* ListC_ApiResponseModel.swift */,
+				B183B486241920F900FD1485 /* CurrencyAB_ApiResponseModel.swift */,
+				B183B4882419210800FD1485 /* CurrencyC_ApiResponseModel.swift */,
+			);
+			path = Currency;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,9 +456,12 @@
 			files = (
 				B183B454241787C200FD1485 /* BasePresenter.swift in Sources */,
 				B183B47924186EF100FD1485 /* CurrenciesInteractor.swift in Sources */,
-				B183B47F24190AA400FD1485 /* CurrencyCModel.swift in Sources */,
+				B183B47F24190AA400FD1485 /* CurrencyC_Model.swift in Sources */,
 				B183B43724177E0C00FD1485 /* NetworkRequest.swift in Sources */,
+				B183B4892419210800FD1485 /* CurrencyC_ApiResponseModel.swift in Sources */,
 				B183B43824177E0C00FD1485 /* NetworkError.swift in Sources */,
+				B183B487241920F900FD1485 /* CurrencyAB_ApiResponseModel.swift in Sources */,
+				B183B48E2419224200FD1485 /* ListC_Model.swift in Sources */,
 				B183B4052416AAD600FD1485 /* AppDelegate.swift in Sources */,
 				B183B456241787E700FD1485 /* BaseInteractor.swift in Sources */,
 				B183B47524186EF100FD1485 /* CurrenciesDataSource.swift in Sources */,
@@ -439,8 +470,9 @@
 				B183B47424186EF100FD1485 /* CurrenciesWireFrame.swift in Sources */,
 				B183B4512417879F00FD1485 /* BaseWireFrame.swift in Sources */,
 				B183B42F24177E0C00FD1485 /* NetworkAccountRequestProtocol.swift in Sources */,
-				B183B48324191DDA00FD1485 /* ABListApiResponseModel.swift in Sources */,
-				B183B4622417EC3300FD1485 /* CurrencyABModel.swift in Sources */,
+				B183B48324191DDA00FD1485 /* ListAB_ApiResponseModel.swift in Sources */,
+				B183B48C2419223700FD1485 /* ListAB_Model.swift in Sources */,
+				B183B4622417EC3300FD1485 /* CurrencyAB_Model.swift in Sources */,
 				B183B43524177E0C00FD1485 /* NetworkRequestProvider.swift in Sources */,
 				B183B47D2418E68B00FD1485 /* ConstraintExtension.swift in Sources */,
 				B183B47B24187EC600FD1485 /* ColorManager.swift in Sources */,
@@ -448,7 +480,7 @@
 				B183B47824186EF100FD1485 /* CurrenciesProtocols.swift in Sources */,
 				B183B43B2417829500FD1485 /* DIResolver.swift in Sources */,
 				B183B47724186EF100FD1485 /* CurrenciesViewController.swift in Sources */,
-				B183B48524191DEE00FD1485 /* CListApiResponseModel.swift in Sources */,
+				B183B48524191DEE00FD1485 /* ListC_ApiResponseModel.swift in Sources */,
 				B183B43624177E0C00FD1485 /* NetworkRequestWrapper.swift in Sources */,
 				B183B45E24178D4C00FD1485 /* SceneDelegate.swift in Sources */,
 				B183B43024177E0C00FD1485 /* NetworkProvider+Currency.swift in Sources */,

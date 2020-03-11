@@ -39,10 +39,10 @@ extension CurrenciesPresenter {
         self.isLoading = true
         
         
-        let rand = CurrencyABModel(currency: "rand (Republika Południowej Afryki)", code: "RND", mid: 0.012859, effectiveDate: "2020-03-10")
-        let dolar = CurrencyABModel(currency: "dolar samoański", code: "USD", mid: 4.9, effectiveDate: "2020-03-10")
-        let aud = CurrencyABModel(currency: "dolar australijski", code: "AUD", mid: 2.5020, effectiveDate: "2020-03-10")
-        let nz = CurrencyABModel(currency: "dolar nowozelandzki", code: "NZD", mid: 4.9, effectiveDate: "2020-03-10")
+        let rand = CurrencyAB_Model(currency: "rand (Republika Południowej Afryki)", code: "RND", mid: 0.012859, effectiveDate: "2020-03-10")
+        let dolar = CurrencyAB_Model(currency: "dolar samoański", code: "USD", mid: 4.9, effectiveDate: "2020-03-10")
+        let aud = CurrencyAB_Model(currency: "dolar australijski", code: "AUD", mid: 2.5020, effectiveDate: "2020-03-10")
+        let nz = CurrencyAB_Model(currency: "dolar nowozelandzki", code: "NZD", mid: 4.9, effectiveDate: "2020-03-10")
         
         let models = [rand, dolar, nz, aud]
         

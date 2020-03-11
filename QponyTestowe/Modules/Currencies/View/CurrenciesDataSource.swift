@@ -15,7 +15,7 @@ protocol CurrenciesDataSourceDelegate: class {
 
 class CurrenciesDataSource {
 
-    private var currencies = [CurrencyABModel]()
+    private var currencies = [CurrencyAB_Model]()
     
     weak var delegate: CurrenciesDataSourceDelegate?
     
@@ -27,7 +27,7 @@ class CurrenciesDataSource {
         return self.currencies.count
     }
 
-    func insertItems(_ items: [CurrencyABModel]) {
+    func insertItems(_ items: [CurrencyAB_Model]) {
         self.updateWithItems(items)
     }
     
@@ -38,7 +38,7 @@ class CurrenciesDataSource {
         return cell
     }
     
-    private func updateWithItems(_ items: [CurrencyABModel]) {
+    private func updateWithItems(_ items: [CurrencyAB_Model]) {
         self.currencies = items
         DispatchQueue.main.async {
            self.delegate?.reloadData()

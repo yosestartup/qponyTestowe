@@ -8,5 +8,10 @@
 
 import Foundation
 
-struct ListCApiResponseModel: Codable {
+struct ListC_ApiResponseModel: Codable {
+    let table: String
+    let no: String
+    let tradingDate: String
+    let effectiveDate: String
+    let rates: [CurrencyC_ApiResponseModel]
 }

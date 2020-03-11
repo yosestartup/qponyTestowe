@@ -92,7 +92,7 @@ class CurrenciesTableCell: UITableViewCell {
 }
 
 extension CurrenciesTableCell {
-    func display(_ model: CurrencyABModel) {
+    func display(_ model: CurrencyAB_Model) {
         self.currencyCodeLabel.text = model.code
         self.currencyNameLabel.text = model.currency
         self.currencyMidLabel.text = String(model.mid)
