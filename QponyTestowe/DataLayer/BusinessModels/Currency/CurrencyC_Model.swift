@@ -9,12 +9,12 @@
 import Foundation
 
 class CurrencyC_Model: CurrencyBaseModel {
-    var bid: Float = 0.0
-    var ask: Float = 0.0
+    var bid: Double = 0.0
+    var ask: Double = 0.0
     var effectiveDate: String = ""
     var tradingDate: String = ""
     
-    init(currency: String, code: String, bid: Float, ask: Float, effectiveDate: String, tradingDate: String) {
+    init(currency: String, code: String, bid: Double, ask: Double, effectiveDate: String, tradingDate: String) {
         super.init()
         self.currency = currency
         self.code = code

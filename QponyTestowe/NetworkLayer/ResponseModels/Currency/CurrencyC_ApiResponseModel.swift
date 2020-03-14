@@ -11,6 +11,6 @@ import Foundation
 struct CurrencyC_ApiResponseModel: Codable {
     var currency: String
     var code: String
-    var bid: Float
-    var ask: Float
+    var bid: Double
+    var ask: Double
 }

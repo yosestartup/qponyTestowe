@@ -9,10 +9,10 @@
 import Foundation
 
 class CurrencyAB_Model: CurrencyBaseModel {
-    var mid: Float = 0.0
+    var mid: Double = 0.0
     var effectiveDate: String = ""
     
-    init(currency: String, code: String, mid: Float, effectiveDate: String) {
+    init(currency: String, code: String, mid: Double, effectiveDate: String) {
         super.init()
         self.currency = currency
         self.code = code
