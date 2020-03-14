@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		AD5643B2AB697526E7999CFF /* Pods_QponyTestowe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFC1A1FE434769B5ED0E2C57 /* Pods_QponyTestowe.framework */; };
+		B125F8C8241C509B00DD67F3 /* CurrencyBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125F8C7241C509B00DD67F3 /* CurrencyBaseModel.swift */; };
 		B183B4052416AAD600FD1485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B4042416AAD600FD1485 /* AppDelegate.swift */; };
 		B183B40E2416AADD00FD1485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B183B40D2416AADD00FD1485 /* Assets.xcassets */; };
 		B183B4112416AADD00FD1485 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B183B40F2416AADD00FD1485 /* LaunchScreen.storyboard */; };
-		B183B42F24177E0C00FD1485 /* NetworkAccountRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B41C24177E0C00FD1485 /* NetworkAccountRequestProtocol.swift */; };
+		B183B42F24177E0C00FD1485 /* NetworkCurrencyRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B41C24177E0C00FD1485 /* NetworkCurrencyRequestProtocol.swift */; };
 		B183B43024177E0C00FD1485 /* NetworkProvider+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B41E24177E0C00FD1485 /* NetworkProvider+Currency.swift */; };
 		B183B43524177E0C00FD1485 /* NetworkRequestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B42524177E0C00FD1485 /* NetworkRequestProvider.swift */; };
 		B183B43624177E0C00FD1485 /* NetworkRequestWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B42724177E0C00FD1485 /* NetworkRequestWrapper.swift */; };
@@ -28,7 +29,7 @@
 		B183B47324186EF100FD1485 /* CurrenciesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B46824186EF100FD1485 /* CurrenciesPresenter.swift */; };
 		B183B47424186EF100FD1485 /* CurrenciesWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B46A24186EF100FD1485 /* CurrenciesWireFrame.swift */; };
 		B183B47524186EF100FD1485 /* CurrenciesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B46C24186EF100FD1485 /* CurrenciesDataSource.swift */; };
-		B183B47624186EF100FD1485 /* CurrenciesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B46D24186EF100FD1485 /* CurrenciesTableCell.swift */; };
+		B183B47624186EF100FD1485 /* CurrencyABTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B46D24186EF100FD1485 /* CurrencyABTableCell.swift */; };
 		B183B47724186EF100FD1485 /* CurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B46E24186EF100FD1485 /* CurrenciesViewController.swift */; };
 		B183B47824186EF100FD1485 /* CurrenciesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B47024186EF100FD1485 /* CurrenciesProtocols.swift */; };
 		B183B47924186EF100FD1485 /* CurrenciesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B47224186EF100FD1485 /* CurrenciesInteractor.swift */; };
@@ -41,16 +42,19 @@
 		B183B4892419210800FD1485 /* CurrencyC_ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B4882419210800FD1485 /* CurrencyC_ApiResponseModel.swift */; };
 		B183B48C2419223700FD1485 /* ListAB_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B48B2419223700FD1485 /* ListAB_Model.swift */; };
 		B183B48E2419224200FD1485 /* ListC_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B48D2419224200FD1485 /* ListC_Model.swift */; };
+		B1942030241BFDF200A6C259 /* CurrencyListApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B194202F241BFDF200A6C259 /* CurrencyListApiRequest.swift */; };
+		B1ABF6AB241D17F5001856CF /* CurrencyCTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABF6AA241D17F5001856CF /* CurrencyCTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5CB2D5230C0E69CFD99631F5 /* Pods-QponyTestowe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QponyTestowe.release.xcconfig"; path = "Target Support Files/Pods-QponyTestowe/Pods-QponyTestowe.release.xcconfig"; sourceTree = "<group>"; };
+		B125F8C7241C509B00DD67F3 /* CurrencyBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyBaseModel.swift; sourceTree = "<group>"; };
 		B183B4012416AAD600FD1485 /* QponyTestowe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QponyTestowe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B183B4042416AAD600FD1485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B183B40D2416AADD00FD1485 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B183B4102416AADD00FD1485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B183B4122416AADD00FD1485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B183B41C24177E0C00FD1485 /* NetworkAccountRequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAccountRequestProtocol.swift; sourceTree = "<group>"; };
+		B183B41C24177E0C00FD1485 /* NetworkCurrencyRequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCurrencyRequestProtocol.swift; sourceTree = "<group>"; };
 		B183B41E24177E0C00FD1485 /* NetworkProvider+Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkProvider+Currency.swift"; sourceTree = "<group>"; };
 		B183B42524177E0C00FD1485 /* NetworkRequestProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestProvider.swift; sourceTree = "<group>"; };
 		B183B42724177E0C00FD1485 /* NetworkRequestWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestWrapper.swift; sourceTree = "<group>"; };
@@ -67,19 +71,21 @@
 		B183B46824186EF100FD1485 /* CurrenciesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesPresenter.swift; sourceTree = "<group>"; };
 		B183B46A24186EF100FD1485 /* CurrenciesWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesWireFrame.swift; sourceTree = "<group>"; };
 		B183B46C24186EF100FD1485 /* CurrenciesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesDataSource.swift; sourceTree = "<group>"; };
-		B183B46D24186EF100FD1485 /* CurrenciesTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesTableCell.swift; sourceTree = "<group>"; };
+		B183B46D24186EF100FD1485 /* CurrencyABTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyABTableCell.swift; sourceTree = "<group>"; };
 		B183B46E24186EF100FD1485 /* CurrenciesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesViewController.swift; sourceTree = "<group>"; };
 		B183B47024186EF100FD1485 /* CurrenciesProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesProtocols.swift; sourceTree = "<group>"; };
 		B183B47224186EF100FD1485 /* CurrenciesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesInteractor.swift; sourceTree = "<group>"; };
 		B183B47A24187EC600FD1485 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		B183B47C2418E68B00FD1485 /* ConstraintExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtension.swift; sourceTree = "<group>"; };
 		B183B47E24190AA400FD1485 /* CurrencyC_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyC_Model.swift; sourceTree = "<group>"; };
-		B183B48224191DDA00FD1485 /* ListAB_ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListAB_ApiResponseModel.swift; path = QponyTestowe/NetworkLayer/ResponseModels/Currency/ListAB_ApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
-		B183B48424191DEE00FD1485 /* ListC_ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListC_ApiResponseModel.swift; path = QponyTestowe/NetworkLayer/ResponseModels/Currency/ListC_ApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
+		B183B48224191DDA00FD1485 /* ListAB_ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListAB_ApiResponseModel.swift; path = QponyTestowe/NetworkLayer/ResponseModels/List/ListAB_ApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
+		B183B48424191DEE00FD1485 /* ListC_ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListC_ApiResponseModel.swift; path = QponyTestowe/NetworkLayer/ResponseModels/List/ListC_ApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
 		B183B486241920F900FD1485 /* CurrencyAB_ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyAB_ApiResponseModel.swift; path = QponyTestowe/NetworkLayer/ResponseModels/Currency/CurrencyAB_ApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
 		B183B4882419210800FD1485 /* CurrencyC_ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyC_ApiResponseModel.swift; path = QponyTestowe/NetworkLayer/ResponseModels/Currency/CurrencyC_ApiResponseModel.swift; sourceTree = SOURCE_ROOT; };
 		B183B48B2419223700FD1485 /* ListAB_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAB_Model.swift; sourceTree = "<group>"; };
 		B183B48D2419224200FD1485 /* ListC_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListC_Model.swift; sourceTree = "<group>"; };
+		B194202F241BFDF200A6C259 /* CurrencyListApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListApiRequest.swift; sourceTree = "<group>"; };
+		B1ABF6AA241D17F5001856CF /* CurrencyCTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCTableCell.swift; sourceTree = "<group>"; };
 		DFC1A1FE434769B5ED0E2C57 /* Pods_QponyTestowe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QponyTestowe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE343C27860BA18F42FE865D /* Pods-QponyTestowe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QponyTestowe.debug.xcconfig"; path = "Target Support Files/Pods-QponyTestowe/Pods-QponyTestowe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,9 +167,9 @@
 		B183B41B24177E0C00FD1485 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				B183B41C24177E0C00FD1485 /* NetworkAccountRequestProtocol.swift */,
+				B183B41C24177E0C00FD1485 /* NetworkCurrencyRequestProtocol.swift */,
 				B183B41D24177E0C00FD1485 /* NetworkRequestProviders */,
-				B183B41F24177E0C00FD1485 /* Requests */,
+				B194202E241BFDDE00A6C259 /* Requests */,
 				B183B42224177E0C00FD1485 /* ResponseModels */,
 				B183B42524177E0C00FD1485 /* NetworkRequestProvider.swift */,
 			);
@@ -178,16 +184,10 @@
 			path = NetworkRequestProviders;
 			sourceTree = "<group>";
 		};
-		B183B41F24177E0C00FD1485 /* Requests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Requests;
-			sourceTree = "<group>";
-		};
 		B183B42224177E0C00FD1485 /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
+				B1942035241C02DD00A6C259 /* List */,
 				B183B48F2419351600FD1485 /* Currency */,
 			);
 			path = ResponseModels;
@@ -259,6 +259,7 @@
 		B183B4632417EC4700FD1485 /* BusinessModels */ = {
 			isa = PBXGroup;
 			children = (
+				B1942036241C0A7100A6C259 /* List */,
 				B183B48A2419221A00FD1485 /* Currency */,
 			);
 			path = BusinessModels;
@@ -296,7 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				B183B46C24186EF100FD1485 /* CurrenciesDataSource.swift */,
-				B183B46D24186EF100FD1485 /* CurrenciesTableCell.swift */,
+				B183B46D24186EF100FD1485 /* CurrencyABTableCell.swift */,
+				B1ABF6AA241D17F5001856CF /* CurrencyCTableCell.swift */,
 				B183B46E24186EF100FD1485 /* CurrenciesViewController.swift */,
 			);
 			path = View;
@@ -323,8 +325,7 @@
 			children = (
 				B183B4612417EC3300FD1485 /* CurrencyAB_Model.swift */,
 				B183B47E24190AA400FD1485 /* CurrencyC_Model.swift */,
-				B183B48B2419223700FD1485 /* ListAB_Model.swift */,
-				B183B48D2419224200FD1485 /* ListC_Model.swift */,
+				B125F8C7241C509B00DD67F3 /* CurrencyBaseModel.swift */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
@@ -332,12 +333,36 @@
 		B183B48F2419351600FD1485 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
-				B183B48224191DDA00FD1485 /* ListAB_ApiResponseModel.swift */,
-				B183B48424191DEE00FD1485 /* ListC_ApiResponseModel.swift */,
 				B183B486241920F900FD1485 /* CurrencyAB_ApiResponseModel.swift */,
 				B183B4882419210800FD1485 /* CurrencyC_ApiResponseModel.swift */,
 			);
 			path = Currency;
+			sourceTree = "<group>";
+		};
+		B194202E241BFDDE00A6C259 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B194202F241BFDF200A6C259 /* CurrencyListApiRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		B1942035241C02DD00A6C259 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B183B48224191DDA00FD1485 /* ListAB_ApiResponseModel.swift */,
+				B183B48424191DEE00FD1485 /* ListC_ApiResponseModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		B1942036241C0A7100A6C259 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B183B48B2419223700FD1485 /* ListAB_Model.swift */,
+				B183B48D2419224200FD1485 /* ListC_Model.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,27 +484,30 @@
 				B183B47F24190AA400FD1485 /* CurrencyC_Model.swift in Sources */,
 				B183B43724177E0C00FD1485 /* NetworkRequest.swift in Sources */,
 				B183B4892419210800FD1485 /* CurrencyC_ApiResponseModel.swift in Sources */,
+				B1ABF6AB241D17F5001856CF /* CurrencyCTableCell.swift in Sources */,
 				B183B43824177E0C00FD1485 /* NetworkError.swift in Sources */,
 				B183B487241920F900FD1485 /* CurrencyAB_ApiResponseModel.swift in Sources */,
 				B183B48E2419224200FD1485 /* ListC_Model.swift in Sources */,
 				B183B4052416AAD600FD1485 /* AppDelegate.swift in Sources */,
 				B183B456241787E700FD1485 /* BaseInteractor.swift in Sources */,
+				B1942030241BFDF200A6C259 /* CurrencyListApiRequest.swift in Sources */,
 				B183B47524186EF100FD1485 /* CurrenciesDataSource.swift in Sources */,
 				B183B45A2417882D00FD1485 /* BaseViewController.swift in Sources */,
 				B183B45C24178A6A00FD1485 /* Currencies+DIResolver.swift in Sources */,
 				B183B47424186EF100FD1485 /* CurrenciesWireFrame.swift in Sources */,
 				B183B4512417879F00FD1485 /* BaseWireFrame.swift in Sources */,
-				B183B42F24177E0C00FD1485 /* NetworkAccountRequestProtocol.swift in Sources */,
+				B183B42F24177E0C00FD1485 /* NetworkCurrencyRequestProtocol.swift in Sources */,
 				B183B48324191DDA00FD1485 /* ListAB_ApiResponseModel.swift in Sources */,
 				B183B48C2419223700FD1485 /* ListAB_Model.swift in Sources */,
 				B183B4622417EC3300FD1485 /* CurrencyAB_Model.swift in Sources */,
 				B183B43524177E0C00FD1485 /* NetworkRequestProvider.swift in Sources */,
 				B183B47D2418E68B00FD1485 /* ConstraintExtension.swift in Sources */,
 				B183B47B24187EC600FD1485 /* ColorManager.swift in Sources */,
-				B183B47624186EF100FD1485 /* CurrenciesTableCell.swift in Sources */,
+				B183B47624186EF100FD1485 /* CurrencyABTableCell.swift in Sources */,
 				B183B47824186EF100FD1485 /* CurrenciesProtocols.swift in Sources */,
 				B183B43B2417829500FD1485 /* DIResolver.swift in Sources */,
 				B183B47724186EF100FD1485 /* CurrenciesViewController.swift in Sources */,
+				B125F8C8241C509B00DD67F3 /* CurrencyBaseModel.swift in Sources */,
 				B183B48524191DEE00FD1485 /* ListC_ApiResponseModel.swift in Sources */,
 				B183B43624177E0C00FD1485 /* NetworkRequestWrapper.swift in Sources */,
 				B183B45E24178D4C00FD1485 /* SceneDelegate.swift in Sources */,

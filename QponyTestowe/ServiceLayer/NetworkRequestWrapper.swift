@@ -9,7 +9,7 @@
 import Foundation
 
 struct Environment {
-    static var baseUrl: String = ""
+    static var baseUrl: String = "http://api.nbp.pl/api"
 }
     
 protocol NetworkRequestWrapperProtocol {

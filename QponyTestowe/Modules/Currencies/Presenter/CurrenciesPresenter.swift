@@ -23,39 +23,125 @@ class CurrenciesPresenter: BasePresenter {
 }
 
 extension CurrenciesPresenter: CurrenciesPresenterProtocol {
-    
-    func reloadData() {
-        self.fetchData()
+    func didRefreshPulled(segment: Int) {
+        self.view?.startRefreshing()
+        self.fetchDataBySegmentIndex(index: segment)
     }
-
+    
+    func viewLoaded(segment: Int) {
+        self.view?.showLoading(message: "Ładowanie")
+        self.fetchDataBySegmentIndex(index: segment)
+    }
+    
+    func reloadData(segment: Int) {
+        self.view?.showLoading(message: "Ładowanie")
+        self.fetchDataBySegmentIndex(index: segment)
+    }
 }
 
 extension CurrenciesPresenter {
-    private func fetchData() {
+    
+    private func fetchDataBySegmentIndex(index: Int) {
+        switch (index) {
+        case 0:
+            self.fetchData(tableType: .a)
+        case 1:
+            self.fetchData(tableType: .b)
+        case 2:
+            self.fetchData(tableType: .c)
+        default:
+            self.view?.showOkAlertController(title: "Error", message: "Not yet realized", callback: nil)
+        }
+    }
+    
+    private func fetchData(tableType: TableType) {
         
         guard self.isLoading == false else { return }
-
-        self.view?.startLoading()
+        
         self.isLoading = true
         
-        
-        let rand = CurrencyAB_Model(currency: "rand (Republika Południowej Afryki)", code: "RND", mid: 0.012859, effectiveDate: "2020-03-10")
-        let dolar = CurrencyAB_Model(currency: "dolar samoański", code: "USD", mid: 4.9, effectiveDate: "2020-03-10")
-        let aud = CurrencyAB_Model(currency: "dolar australijski", code: "AUD", mid: 2.5020, effectiveDate: "2020-03-10")
-        let nz = CurrencyAB_Model(currency: "dolar nowozelandzki", code: "NZD", mid: 4.9, effectiveDate: "2020-03-10")
-        
-        let models = [rand, dolar, nz, aud]
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
-           defer {
+        switch (tableType) {
+        case .a:
+            self.interactor.fetchAB_List(tableType: .a) { (model, error) in
+            defer {
                 self.isLoading = false
-                self.view?.stopLoading()
-           }
-           self.view?.insertCurrencies(models: models)
+                DispatchQueue.main.async {
+                    self.view?.stopRefreshing()
+                    self.view?.hideLoading()
+                }
+            }
+            
+            if let error = error {
+                DispatchQueue.main.async {
+                self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
+                }
+                return
+            }
+            
+            if let model = model {
+               let convertedModel = ListAB_Model.convert(from: model[0])
+               for currency in convertedModel.rates {
+                    currency.effectiveDate = convertedModel.effectiveDate
+               }
+               self.view?.insert_ABTable_Currencies(models: convertedModel.rates)
+               return
+            }
+            }
+        case .b:
+            self.interactor.fetchAB_List(tableType: .b) { (model, error) in
+            defer {
+                self.isLoading = false
+                DispatchQueue.main.async {
+                    self.view?.stopRefreshing()
+                    self.view?.hideLoading()
+                }
+             }
+             
+             if let error = error {
+                 DispatchQueue.main.async {
+                 self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
+                }
+                 return
+             }
+             
+             if let model = model {
+                let convertedModel = ListAB_Model.convert(from: model[0])
+                for currency in convertedModel.rates {
+                     currency.effectiveDate = convertedModel.effectiveDate
+                }
+                self.view?.insert_ABTable_Currencies(models: convertedModel.rates)
+                return
+                }
+            }
+            
+        case .c:
+            self.interactor.fetchC_List() { (model, error) in
+            defer {
+                self.isLoading = false
+                DispatchQueue.main.async {
+                    self.view?.stopRefreshing()
+                    self.view?.hideLoading()
+                }
+             }
+             
+             if let error = error {
+                 DispatchQueue.main.async {
+                 self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
+                }
+                 return
+             }
+             
+             if let model = model {
+                let convertedModel = ListC_Model.convert(from: model[0])
+                for currency in convertedModel.rates {
+                     currency.effectiveDate = convertedModel.effectiveDate
+                     currency.tradingDate = convertedModel.tradingDate
+                }
+                self.view?.insert_CTable_Currencies(models: convertedModel.rates)
+                return
+                }
+            }
         }
-
-      
-              
     }
 }
 

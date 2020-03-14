@@ -1,5 +1,5 @@
 //
-//  CurrencyCell.swift
+//  CurrencyABTableCell.swift
 //  QponyTestowe
 //
 //  Created by Oleksandr Bambulyak on 11/03/2020.
@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 import SnapKit
 
-class CurrenciesTableCell: UITableViewCell {
+class CurrencyABTableCell: UITableViewCell {
     
     private var currencyCodeLabel: UILabel = UILabel()
     private var currencyNameLabel: UILabel = UILabel()
     private var currencyMidLabel: UILabel = UILabel()
-    private var dateLabel: UILabel = UILabel()
+    private var effectiveDateLabel: UILabel = UILabel()
     private let cornerRadius: CGFloat = 12.0.withRatio()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -46,7 +46,7 @@ class CurrenciesTableCell: UITableViewCell {
         container.addSubview(self.currencyCodeLabel)
         container.addSubview(self.currencyNameLabel)
         container.addSubview(self.currencyMidLabel)
-        container.addSubview(self.dateLabel)
+        container.addSubview(self.effectiveDateLabel)
         
         container.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -61,7 +61,7 @@ class CurrenciesTableCell: UITableViewCell {
             make.left.equalToSuperview().offset(15.withRatio())
         }
         
-        self.currencyMidLabel.font = UIFont.systemFont(ofSize: 26.withRatio(), weight: .medium)
+        self.currencyMidLabel.font = UIFont.systemFont(ofSize: 16.withRatio(), weight: .medium)
         self.currencyMidLabel.textColor = ColorManager.darkBlue
         self.currencyMidLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-18.withRatio())
@@ -74,9 +74,9 @@ class CurrenciesTableCell: UITableViewCell {
             make.left.equalToSuperview().offset(18.withRatio())
         }
         
-        self.dateLabel.font = UIFont.systemFont(ofSize: 18.withRatio(), weight: .regular)
-        self.dateLabel.textColor = ColorManager.lightGrey
-        self.dateLabel.snp.makeConstraints { (make) in
+        self.effectiveDateLabel.font = UIFont.systemFont(ofSize: 18.withRatio(), weight: .regular)
+        self.effectiveDateLabel.textColor = ColorManager.lightGrey
+        self.effectiveDateLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(18.withRatio())
             make.top.equalTo(self.currencyNameLabel.snp.bottom).offset(6.withRatio())
             make.bottom.equalToSuperview().offset(-18.withRatio())
@@ -91,11 +91,11 @@ class CurrenciesTableCell: UITableViewCell {
     }
 }
 
-extension CurrenciesTableCell {
+extension CurrencyABTableCell {
     func display(_ model: CurrencyAB_Model) {
         self.currencyCodeLabel.text = model.code
         self.currencyNameLabel.text = model.currency
-        self.currencyMidLabel.text = String(model.mid)
-        self.dateLabel.text = model.effectiveDate
+        self.currencyMidLabel.text = "średni: " + String(model.mid)
+        self.effectiveDateLabel.text = "publikacja: " + String(model.effectiveDate)
     }
 }

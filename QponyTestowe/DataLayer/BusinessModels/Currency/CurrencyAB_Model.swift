@@ -8,13 +8,12 @@
 
 import Foundation
 
-class CurrencyAB_Model {
-    var currency: String = ""
-    var code: String = ""
+class CurrencyAB_Model: CurrencyBaseModel {
     var mid: Float = 0.0
     var effectiveDate: String = ""
     
     init(currency: String, code: String, mid: Float, effectiveDate: String) {
+        super.init()
         self.currency = currency
         self.code = code
         self.mid = mid
@@ -25,7 +24,7 @@ class CurrencyAB_Model {
         let model = CurrencyAB_Model(currency: model.currency,
                                      code: model.code,
                                      mid: model.mid,
-                                     effectiveDate: model.effectiveDate)
+                                     effectiveDate: "")
         return model
     }
     

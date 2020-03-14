@@ -13,13 +13,14 @@ class CurrenciesViewController: BaseViewController {
 
     var presenter: CurrenciesPresenterProtocol!
     private var segmentedControl: UISegmentedControl!
-    private var currenciesTable:UITableView = UITableView()
+    private var currenciesTable: UITableView = UITableView()
     private let refreshControl = UIRefreshControl()
     private var dataSource: CurrenciesDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createUI()
+        self.presenter.viewLoaded(segment: segmentedControl.selectedSegmentIndex)
     }
     
     func createUI() {
@@ -43,7 +44,8 @@ class CurrenciesViewController: BaseViewController {
         self.currenciesTable.refreshControl = self.refreshControl
         self.currenciesTable.separatorStyle = .none
         self.currenciesTable.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-        self.currenciesTable.register(CurrenciesTableCell.self, forCellReuseIdentifier: "CurrenciesTableCell")
+        self.currenciesTable.register(CurrencyABTableCell.self, forCellReuseIdentifier: "CurrencyABTableCell")
+        self.currenciesTable.register(CurrencyCTableCell.self, forCellReuseIdentifier: "CurrencyCTableCell")
         
         self.view.addSubview(self.segmentedControl)
         self.view.addSubview(self.currenciesTable)
@@ -61,40 +63,52 @@ class CurrenciesViewController: BaseViewController {
         }
     }
     
+    func scrollToFirstRow() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.currenciesTable.scrollToRow(at: indexPath, at: .top, animated: true)
+    }
+    
     @objc private func changeTable(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            print("A")
-        case 1:
-            print("B")
-        case 2:
-            print("C")
-        default:
-            print("Fail")
-        }
+        self.presenter.reloadData(segment: sender.selectedSegmentIndex)
     }
     
     @objc private func refreshDidPulled(sender: UIRefreshControl) {
-       self.presenter.reloadData()
+        self.presenter.didRefreshPulled(segment: self.segmentedControl.selectedSegmentIndex)
     }
 }
 
 extension CurrenciesViewController: CurrenciesViewProtocol {
-    func insertCurrencies(models: [CurrencyAB_Model]) {
-       self.dataSource.insertItems(models)
+    func stopRefreshing() {
+       if self.refreshControl.isRefreshing {
+            self.refreshControl.endRefreshing()
+       }
     }
     
-    func startLoading() {
+    func showLoading(message: String?) {
+        
+    }
+    
+    func hideLoading() {
+        
+    }
+    
+    func insert_ABTable_Currencies(models: [CurrencyAB_Model]) {
+        self.dataSource.changeDataSourceType(.ab)
+        self.dataSource.insertABItems(models)
+    }
+    
+    func insert_CTable_Currencies(models: [CurrencyC_Model]) {
+        self.dataSource.changeDataSourceType(.c)
+        self.dataSource.insertCItems(models)
+    }
+    
+    func startRefreshing() {
        if !self.refreshControl.isRefreshing {
            self.refreshControl.beginRefreshing()
        }
     }
+    
 
-    func stopLoading() {
-       if self.refreshControl.isRefreshing {
-            self.refreshControl.endRefreshing()
-        }
-    }
 }
 
 extension CurrenciesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -123,8 +137,10 @@ extension CurrenciesViewController: UITableViewDelegate, UITableViewDataSource {
 extension CurrenciesViewController: CurrenciesDataSourceDelegate {
     func reloadData() {
         self.currenciesTable.reloadData()
+        self.scrollToFirstRow()
     }
 }
+
 
 
 

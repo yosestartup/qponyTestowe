@@ -8,15 +8,14 @@
 
 import Foundation
 
-class CurrencyC_Model {
-    var currency: String = ""
-    var code: String = ""
+class CurrencyC_Model: CurrencyBaseModel {
     var bid: Float = 0.0
     var ask: Float = 0.0
     var effectiveDate: String = ""
     var tradingDate: String = ""
     
     init(currency: String, code: String, bid: Float, ask: Float, effectiveDate: String, tradingDate: String) {
+        super.init()
         self.currency = currency
         self.code = code
         self.bid = bid
@@ -30,8 +29,8 @@ class CurrencyC_Model {
                                      code: model.code,
                                      bid: model.bid,
                                      ask: model.ask,
-                                     effectiveDate: model.effectiveDate,
-                                     tradingDate: model.tradingDate)
+                                     effectiveDate: "",
+                                     tradingDate: "")
         return model
     }
     

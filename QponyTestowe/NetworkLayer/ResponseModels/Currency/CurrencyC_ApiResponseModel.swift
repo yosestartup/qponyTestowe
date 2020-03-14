@@ -13,6 +13,4 @@ struct CurrencyC_ApiResponseModel: Codable {
     var code: String
     var bid: Float
     var ask: Float
-    var effectiveDate: String
-    var tradingDate: String
 }

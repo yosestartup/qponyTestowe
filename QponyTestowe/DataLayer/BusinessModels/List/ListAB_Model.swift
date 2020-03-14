@@ -29,4 +29,8 @@ class ListAB_Model {
                                  rates: rates)
          return model
      }
+    
+    static func convertArray(apiModels: [ListAB_ApiResponseModel]) -> [ListAB_Model] {
+        return apiModels.compactMap({ ListAB_Model.convert(from: $0) })
+    }
 }
