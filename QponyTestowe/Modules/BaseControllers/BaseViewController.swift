@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import MBProgressHUD
+import MBProgressHUD
 
 class BaseViewController: UIViewController {
 
@@ -25,6 +25,21 @@ class BaseViewController: UIViewController {
         }
     }
 
+    func showLoading(message: String?) {
+        if let message = message {
+            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = message
+        } else {
+            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+        }
+    }
+    
+    func hideLoading() {
+        MBProgressHUD.hide(for: self.view, animated: true)
+    }
+    
     func showAlertController(style: UIAlertController.Style, setupBlock: (UIAlertController) -> Void) {
 
         let alertController: UIAlertController = UIAlertController(title: "Error", message: nil, preferredStyle: style)

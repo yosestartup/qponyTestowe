@@ -84,14 +84,6 @@ extension CurrenciesViewController: CurrenciesViewProtocol {
        }
     }
     
-    func showLoading(message: String?) {
-        
-    }
-    
-    func hideLoading() {
-        
-    }
-    
     func insert_ABTable_Currencies(models: [CurrencyAB_Model]) {
         self.dataSource.changeDataSourceType(.ab)
         self.dataSource.insertABItems(models)
