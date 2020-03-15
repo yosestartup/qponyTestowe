@@ -34,7 +34,7 @@ class CurrencyABTableCell: UITableViewCell {
         self.backgroundColor = .clear
         self.contentView.backgroundColor = .clear
         self.selectionStyle = .none
-
+        
         self.contentView.backgroundColor = .clear
 
         let container = UIView()

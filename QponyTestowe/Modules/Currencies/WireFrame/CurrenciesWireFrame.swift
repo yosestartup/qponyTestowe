@@ -9,5 +9,9 @@
 import UIKit
 
 class CurrenciesWireFrame: BaseWireFrame, CurrenciesWireFrameProtocol {
-    
+    func presentCurrencyDetailDetail(from view: CurrenciesViewProtocol?, currencyModel: CurrencyBaseModel) {
+        guard let fromView = view as? UIViewController else { return }
+        let viewController = self.resolver.presentCurrencyDetailViewController(currencyModel: currencyModel)
+        fromView.navigationController?.pushViewController(viewController, animated: true)
+    }
 }

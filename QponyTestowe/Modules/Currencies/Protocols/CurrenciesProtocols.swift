@@ -17,21 +17,23 @@ enum TableType: String {
 protocol CurrenciesViewProtocol: class {
     func insert_ABTable_Currencies(models: [CurrencyAB_Model])
     func insert_CTable_Currencies(models: [CurrencyC_Model])
+    func getModelBy(index: Int) -> CurrencyBaseModel? 
     func startRefreshing()
     func stopRefreshing()
-    
     func showLoading(message: String?)
     func hideLoading()
     func showOkAlertController(title: String?, message: String?, callback: (() -> Void)?)
 }
 
 protocol CurrenciesWireFrameProtocol: class {
+    func presentCurrencyDetailDetail(from view: CurrenciesViewProtocol?, currencyModel: CurrencyBaseModel)
 }
 
 protocol CurrenciesPresenterProtocol: class {
     func viewLoaded(segment: Int)
     func didRefreshPulled(segment: Int)
     func reloadData(segment: Int)
+    func didClickCellAt(row: Int)
 }
 
 protocol CurrenciesInteractorProtocol: class {

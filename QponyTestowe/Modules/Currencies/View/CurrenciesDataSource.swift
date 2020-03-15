@@ -9,33 +9,29 @@
 import Foundation
 import UIKit
 
-enum DataSourceType: CaseIterable {
-    case ab
-    case c
-    
-    init?(caseName: String) {
-      for value in DataSourceType.allCases where "\(value)" == caseName {
-          self = value
-          return
-      }
-
-      return nil
-    }
-}
 protocol CurrenciesDataSourceDelegate: class {
     func reloadData()
 }
 
 class CurrenciesDataSource {
 
-    private var dataSourceType: DataSourceType? = DataSourceType(caseName: "ab")
+    private var dataSourceType: TableType? = TableType(rawValue: "a")
     private var AB_currencies = [CurrencyAB_Model]()
     private var C_currencies = [CurrencyC_Model]()
     
     weak var delegate: CurrenciesDataSourceDelegate?
     
-    func changeDataSourceType(_ type: DataSourceType) {
+    func changeDataSourceType(_ type: TableType) {
         self.dataSourceType = type
+    }
+    
+    func getModelBy(index: Int) -> CurrencyBaseModel? {
+        if(dataSourceType == .a || dataSourceType == .b) {
+            return AB_currencies[index]
+        } else if (dataSourceType == .c) {
+            return C_currencies[index]
+        }
+        return nil
     }
     
     func getNumberOfSections() -> Int {
@@ -44,14 +40,15 @@ class CurrenciesDataSource {
 
     func getNumberOfItems(in section: Int) -> Int {
         switch (dataSourceType) {
-          case .ab:
+          case .a:
+            return self.AB_currencies.count
+          case .b:
             return self.AB_currencies.count
           case .c:
             return self.C_currencies.count
          default:
             return 0
         }
-        
     }
 
     func insertABItems(_ items: [CurrencyAB_Model]) {
@@ -64,7 +61,11 @@ class CurrenciesDataSource {
     
     func getCell(for tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         switch (dataSourceType) {
-            case .ab:
+            case .a:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyABTableCell", for: indexPath) as? CurrencyABTableCell else { return UITableViewCell() }
+                cell.display(self.AB_currencies[indexPath.row])
+                return cell
+            case .b:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyABTableCell", for: indexPath) as? CurrencyABTableCell else { return UITableViewCell() }
                 cell.display(self.AB_currencies[indexPath.row])
                 return cell
@@ -76,7 +77,7 @@ class CurrenciesDataSource {
                 return UITableViewCell()
         }
     }
-    
+
     private func updateWith_ABItems(_ items: [CurrencyAB_Model]) {
         self.AB_currencies = items
         DispatchQueue.main.async {

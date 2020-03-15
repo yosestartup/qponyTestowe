@@ -136,7 +136,6 @@
 			children = (
 				B10429CC241D6EE700641A0C /* Presenter */,
 				B10429CE241D6EE700641A0C /* WireFrame */,
-				B10429D0241D6EE700641A0C /* CurrencyDetail+DIResolver.swift */,
 				B10429D1241D6EE700641A0C /* View */,
 				B10429D3241D6EE700641A0C /* Protocols */,
 				B10429D5241D6EE700641A0C /* Interactor */,
@@ -297,6 +296,7 @@
 			children = (
 				B183B43A2417829500FD1485 /* DIResolver.swift */,
 				B183B45B24178A6A00FD1485 /* Currencies+DIResolver.swift */,
+				B10429D0241D6EE700641A0C /* CurrencyDetail+DIResolver.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -304,8 +304,8 @@
 		B183B43C2417852200FD1485 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B10429CB241D6EE700641A0C /* CurrencyDetail */,
 				B183B46624186EF100FD1485 /* Currencies */,
+				B10429CB241D6EE700641A0C /* CurrencyDetail */,
 				B183B44F2417878D00FD1485 /* BaseControllers */,
 			);
 			path = Modules;

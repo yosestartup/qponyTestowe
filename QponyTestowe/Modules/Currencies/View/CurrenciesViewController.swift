@@ -39,6 +39,8 @@ class CurrenciesViewController: BaseViewController {
         self.dataSource = CurrenciesDataSource()
         self.dataSource.delegate = self
         
+        self.currenciesTable.allowsSelection = true
+        self.currenciesTable.isUserInteractionEnabled = true
         self.currenciesTable.delegate = self
         self.currenciesTable.dataSource = self
         self.currenciesTable.refreshControl = self.refreshControl
@@ -78,6 +80,10 @@ class CurrenciesViewController: BaseViewController {
 }
 
 extension CurrenciesViewController: CurrenciesViewProtocol {
+    func getModelBy(index: Int) -> CurrencyBaseModel? {
+        return self.dataSource.getModelBy(index: index) ?? nil
+    }
+    
     func stopRefreshing() {
        if self.refreshControl.isRefreshing {
             self.refreshControl.endRefreshing()
@@ -85,8 +91,10 @@ extension CurrenciesViewController: CurrenciesViewProtocol {
     }
     
     func insert_ABTable_Currencies(models: [CurrencyAB_Model]) {
-        self.dataSource.changeDataSourceType(.ab)
-        self.dataSource.insertABItems(models)
+        if let tableType = models[0].tableType {
+            self.dataSource.changeDataSourceType(tableType)
+            self.dataSource.insertABItems(models)
+        }
     }
     
     func insert_CTable_Currencies(models: [CurrencyC_Model]) {
@@ -99,8 +107,6 @@ extension CurrenciesViewController: CurrenciesViewProtocol {
            self.refreshControl.beginRefreshing()
        }
     }
-    
-
 }
 
 extension CurrenciesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -124,6 +130,9 @@ extension CurrenciesViewController: UITableViewDelegate, UITableViewDataSource {
         return self.dataSource.getCell(for: tableView, indexPath: indexPath)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter.didClickCellAt(row: indexPath.row)
+    }
 }
 
 extension CurrenciesViewController: CurrenciesDataSourceDelegate {

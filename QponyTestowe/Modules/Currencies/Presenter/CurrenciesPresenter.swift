@@ -23,6 +23,12 @@ class CurrenciesPresenter: BasePresenter {
 }
 
 extension CurrenciesPresenter: CurrenciesPresenterProtocol {
+    func didClickCellAt(row: Int) {
+        if let model = self.view?.getModelBy(index: row) {
+            self.wireFrame.presentCurrencyDetailDetail(from: self.view, currencyModel: model)
+        }
+    }
+    
     func didRefreshPulled(segment: Int) {
         self.view?.startRefreshing()
         self.fetchDataBySegmentIndex(index: segment)
@@ -82,6 +88,7 @@ extension CurrenciesPresenter {
                let convertedModel = ListAB_Model.convert(from: model[0])
                for currency in convertedModel.rates {
                     currency.effectiveDate = convertedModel.effectiveDate
+                    currency.tableType = .a
                }
                self.view?.insert_ABTable_Currencies(models: convertedModel.rates)
                return
@@ -108,6 +115,7 @@ extension CurrenciesPresenter {
                 let convertedModel = ListAB_Model.convert(from: model[0])
                 for currency in convertedModel.rates {
                      currency.effectiveDate = convertedModel.effectiveDate
+                     currency.tableType = .b
                 }
                 self.view?.insert_ABTable_Currencies(models: convertedModel.rates)
                 return
@@ -136,6 +144,7 @@ extension CurrenciesPresenter {
                 for currency in convertedModel.rates {
                      currency.effectiveDate = convertedModel.effectiveDate
                      currency.tradingDate = convertedModel.tradingDate
+                     currency.tableType = .c
                 }
                 self.view?.insert_CTable_Currencies(models: convertedModel.rates)
                 return

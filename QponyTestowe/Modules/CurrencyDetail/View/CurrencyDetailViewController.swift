@@ -21,7 +21,16 @@ class CurrencyDetailViewController: BaseViewController {
 
 
     private func createUI() {
-
+        self.navigationController?.isToolbarHidden = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.black, .font: UIFont(name: "HelveticaNeue-Bold", size: 20)!]
+        
+        self.title = "Currencies"
+        self.view.backgroundColor = UIColor.white
+        
+        
+        
     }
 }
 extension CurrencyDetailViewController: CurrencyDetailViewProtocol { }

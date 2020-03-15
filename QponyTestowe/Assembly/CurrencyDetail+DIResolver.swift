@@ -10,15 +10,15 @@ import UIKit
 
 // MARK: - CurrencyDetail
 protocol CurrencyDetailProtocol {
-    func presentCurrencyDetailViewController() -> UIViewController
+    func presentCurrencyDetailViewController(currencyModel: CurrencyBaseModel) -> UIViewController
 }
 
 extension DIResolver: CurrencyDetailProtocol {
-    func presentCurrencyDetailViewController() -> UIViewController {
+    func presentCurrencyDetailViewController(currencyModel: CurrencyBaseModel) -> UIViewController {
         let viewController = CurrencyDetailViewController()
         let interactor = CurrencyDetailInteractor(networkController: self.networkController)
         let wireFrame = CurrencyDetailWireFrame(resolver: self)
-        let presenter = CurrencyDetailPresenter(view: viewController, wireFrame: wireFrame, interactor: interactor)
+        let presenter = CurrencyDetailPresenter(currencyModel: currencyModel, view: viewController, wireFrame: wireFrame, interactor: interactor)
         viewController.presenter = presenter
         return viewController
     }

@@ -11,4 +11,5 @@ import Foundation
 class CurrencyBaseModel {
     var currency: String = ""
     var code: String = ""
+    var tableType: TableType?
 }
