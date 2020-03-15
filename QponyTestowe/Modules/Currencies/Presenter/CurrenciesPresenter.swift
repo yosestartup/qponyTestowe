@@ -85,7 +85,7 @@ extension CurrenciesPresenter {
             }
             
             if let model = model {
-               let convertedModel = ListAB_Model.convert(from: model[0])
+               let convertedModel = CurrenciesListAB_Model.convert(from: model[0])
                for currency in convertedModel.rates {
                     currency.effectiveDate = convertedModel.effectiveDate
                     currency.tableType = .a
@@ -112,7 +112,7 @@ extension CurrenciesPresenter {
              }
              
              if let model = model {
-                let convertedModel = ListAB_Model.convert(from: model[0])
+                let convertedModel = CurrenciesListAB_Model.convert(from: model[0])
                 for currency in convertedModel.rates {
                      currency.effectiveDate = convertedModel.effectiveDate
                      currency.tableType = .b
@@ -140,7 +140,7 @@ extension CurrenciesPresenter {
              }
              
              if let model = model {
-                let convertedModel = ListC_Model.convert(from: model[0])
+                let convertedModel = CurrenciesListC_Model.convert(from: model[0])
                 for currency in convertedModel.rates {
                      currency.effectiveDate = convertedModel.effectiveDate
                      currency.tradingDate = convertedModel.tradingDate

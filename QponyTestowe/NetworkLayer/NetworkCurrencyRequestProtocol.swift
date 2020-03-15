@@ -9,6 +9,6 @@
 import Foundation
 
 protocol NetworkCurrencyRequestProtocol {
-    func getAB_CurrencyTable(tableType: TableType, completion: @escaping([ListAB_ApiResponseModel]?, NetworkError?) -> Void)
-    func getC_CurrencyTable(completion: @escaping([ListC_ApiResponseModel]?, NetworkError?) -> Void)
+    func getAB_CurrencyTable(tableType: TableType, completion: @escaping([CurrencyListAB_ApiResponseModel]?, NetworkError?) -> Void)
+    func getC_CurrencyTable(completion: @escaping([CurrencyListC_ApiResponseModel]?, NetworkError?) -> Void)
 }

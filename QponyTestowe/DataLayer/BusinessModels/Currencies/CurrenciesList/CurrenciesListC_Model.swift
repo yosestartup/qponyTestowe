@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ListC_Model {
+class CurrenciesListC_Model {
     var table: String = ""
     var no: String = ""
     var tradingDate: String = ""
@@ -23,9 +23,9 @@ class ListC_Model {
         self.rates = rates
     }
     
-    static func convert(from model: ListC_ApiResponseModel) -> ListC_Model {
+    static func convert(from model: CurrencyListC_ApiResponseModel) -> CurrenciesListC_Model {
          let rates = CurrencyC_Model.convert(from: model.rates)
-         let model = ListC_Model(table: model.table,
+         let model = CurrenciesListC_Model(table: model.table,
                                   no: model.no,
                                   tradingDate: model.tradingDate,
                                   effectiveDate: model.effectiveDate,

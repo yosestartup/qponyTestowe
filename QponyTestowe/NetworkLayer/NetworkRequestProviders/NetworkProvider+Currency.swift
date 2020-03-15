@@ -10,7 +10,7 @@ import UIKit
 
 extension NetworkRequestProvider: NetworkCurrencyRequestProtocol {
    
-    func getAB_CurrencyTable(tableType: TableType, completion: @escaping ([ListAB_ApiResponseModel]?, NetworkError?) -> Void) {
+    func getAB_CurrencyTable(tableType: TableType, completion: @escaping ([CurrencyListAB_ApiResponseModel]?, NetworkError?) -> Void) {
         var request: CurrencyListApiRequest!
         
         switch tableType {
@@ -38,7 +38,7 @@ extension NetworkRequestProvider: NetworkCurrencyRequestProtocol {
                 if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
                     print(JSONString)
                 }
-                let jsonModels = try jsonDecoder.decode([ListAB_ApiResponseModel].self, from: data)
+                let jsonModels = try jsonDecoder.decode([CurrencyListAB_ApiResponseModel].self, from: data)
                 //let models = ListAB_Model.convertArray(apiModels: jsonModels)
                 completion(jsonModels, nil)
             } catch {
@@ -48,7 +48,7 @@ extension NetworkRequestProvider: NetworkCurrencyRequestProtocol {
         }
     }
     
-    func getC_CurrencyTable(completion: @escaping ([ListC_ApiResponseModel]?, NetworkError?) -> Void) {
+    func getC_CurrencyTable(completion: @escaping ([CurrencyListC_ApiResponseModel]?, NetworkError?) -> Void) {
         let request = CurrencyListApiRequest(tableType: .c)
 
         self.runRequest(request) { (_, data, error) in
@@ -63,7 +63,7 @@ extension NetworkRequestProvider: NetworkCurrencyRequestProtocol {
                     return
                 }
             do {
-                let model = try jsonDecoder.decode([ListC_ApiResponseModel].self, from: data)
+                let model = try jsonDecoder.decode([CurrencyListC_ApiResponseModel].self, from: data)
                 completion(model, nil)
             } catch {
                 let error = NetworkErrorStruct(error: error as NSError)

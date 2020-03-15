@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ListAB_ApiResponseModel: Codable {
+struct CurrencyListAB_ApiResponseModel: Codable {
     let table: String
     let no: String
     let effectiveDate: String

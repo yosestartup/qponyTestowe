@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ListAB_Model {
+class CurrenciesListAB_Model {
     var table: String = ""
     var no: String = ""
     var effectiveDate: String = ""
@@ -21,16 +21,16 @@ class ListAB_Model {
         self.rates = rates
     }
     
-    static func convert(from model: ListAB_ApiResponseModel) -> ListAB_Model {
+    static func convert(from model: CurrencyListAB_ApiResponseModel) -> CurrenciesListAB_Model {
         let rates = CurrencyAB_Model.convert(from: model.rates)
-        let model = ListAB_Model(table: model.table,
+        let model = CurrenciesListAB_Model(table: model.table,
                                  no: model.no,
                                  effectiveDate: model.effectiveDate,
                                  rates: rates)
          return model
      }
     
-    static func convertArray(apiModels: [ListAB_ApiResponseModel]) -> [ListAB_Model] {
-        return apiModels.compactMap({ ListAB_Model.convert(from: $0) })
+    static func convertArray(apiModels: [CurrencyListAB_ApiResponseModel]) -> [CurrenciesListAB_Model] {
+        return apiModels.compactMap({ CurrenciesListAB_Model.convert(from: $0) })
     }
 }

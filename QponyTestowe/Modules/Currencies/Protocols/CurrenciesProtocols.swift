@@ -37,7 +37,7 @@ protocol CurrenciesPresenterProtocol: class {
 }
 
 protocol CurrenciesInteractorProtocol: class {
-    func fetchAB_List(tableType: TableType, completion: @escaping ([ListAB_ApiResponseModel]?, NetworkError?) -> Void)
-    func fetchC_List(completion: @escaping ([ListC_ApiResponseModel]?, NetworkError?) -> Void)
+    func fetchAB_List(tableType: TableType, completion: @escaping ([CurrencyListAB_ApiResponseModel]?, NetworkError?) -> Void)
+    func fetchC_List(completion: @escaping ([CurrencyListC_ApiResponseModel]?, NetworkError?) -> Void)
 }
 

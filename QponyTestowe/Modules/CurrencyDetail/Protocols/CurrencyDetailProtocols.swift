@@ -10,11 +10,13 @@ import UIKit
 
 protocol CurrencyDetailViewProtocol: class {
     func setTitle(text: String)
+    func showOkAlertController(title: String?, message: String?, callback: (() -> Void)?)
 }
 
 protocol CurrencyDetailWireFrameProtocol: class { }
 
 protocol CurrencyDetailPresenterProtocol: class {
+    func didClickSearchButton(from: String, to: String)
     func viewLoaded()
 }
 

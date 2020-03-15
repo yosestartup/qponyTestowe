@@ -9,11 +9,11 @@
 class CurrenciesInteractor: BaseInteractor { }
 
 extension CurrenciesInteractor: CurrenciesInteractorProtocol {
-    func fetchAB_List(tableType: TableType, completion: @escaping ([ListAB_ApiResponseModel]?, NetworkError?) -> Void) {
+    func fetchAB_List(tableType: TableType, completion: @escaping ([CurrencyListAB_ApiResponseModel]?, NetworkError?) -> Void) {
         self.networkController.getAB_CurrencyTable(tableType: tableType, completion: completion)
     }
     
-    func fetchC_List(completion: @escaping ([ListC_ApiResponseModel]?, NetworkError?) -> Void) {
+    func fetchC_List(completion: @escaping ([CurrencyListC_ApiResponseModel]?, NetworkError?) -> Void) {
         self.networkController.getC_CurrencyTable(completion: completion)
     }
     

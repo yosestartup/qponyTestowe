@@ -24,6 +24,14 @@ class CurrencyDetailPresenter: BasePresenter {
 }
 
 extension CurrencyDetailPresenter: CurrencyDetailPresenterProtocol {
+    
+    func didClickSearchButton(from: String, to: String) {
+        if(from.isEmpty || to.isEmpty) {
+            self.view?.showOkAlertController(title: "Błąd", message: "Jedna albo dwie daty są niepoprawne", callback: nil)
+            return
+        }
+    }
+    
     func viewLoaded() {
         let currencyName = currencyModel.currency
         if let index = currencyName.range(of: "(")?.lowerBound {
