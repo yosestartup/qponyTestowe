@@ -28,25 +28,108 @@ class CurrencyDetailPresenter: BasePresenter {
 
 extension CurrencyDetailPresenter {
     
-    private func fetchData() {
+    private func fetchData(from: String, to: String) {
         guard self.isLoading == false else { return }
         
         self.isLoading = true
     
+        switch (currencyTableType) {
+        case .a:
+        self.interactor.fetchAB_RatesList(tableType: self.currencyTableType, currencyCode: self.currencyModel.code, startDate: from, endDate: to) { (model, error) in
+               
+            defer {
+                self.isLoading = false
+                DispatchQueue.main.async {
+                    self.view?.stopRefreshing()
+                    self.view?.hideLoading()
+                }
+            }
             
-        //self.view?.insert_ABTable(rates: [rateABModel1, rateABModel2])
-    }
+            if let error = error {
+               DispatchQueue.main.async {
+               self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
+               }
+               return
+           }
+           
+           if let model = model {
+              let convertedModel = RatesListAB_Model.convert(from: model)
+              for rate in convertedModel.rates {
+                   rate.tableType = .a
+            }
+                self.view?.insert_ABTable(rates: convertedModel.rates)
+                return
+           }
+        }
+            
+        case .b:
+        self.interactor.fetchAB_RatesList(tableType: self.currencyTableType, currencyCode: self.currencyModel.code, startDate: from, endDate: to) { (model, error) in
+               
+            defer {
+                self.isLoading = false
+                DispatchQueue.main.async {
+                    self.view?.stopRefreshing()
+                    self.view?.hideLoading()
+                }
+            }
+            
+            if let error = error {
+               DispatchQueue.main.async {
+               self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
+               }
+               return
+           }
+           
+           if let model = model {
+              let convertedModel = RatesListAB_Model.convert(from: model)
+              for rate in convertedModel.rates {
+                   rate.tableType = .b
+            }
+                self.view?.insert_ABTable(rates: convertedModel.rates)
+                return
+           }
+        }
+        case .c:
+        self.interactor.fetchC_RatesList(tableType: self.currencyTableType, currencyCode: self.currencyModel.code, startDate: from, endDate: to) { (model, error) in
+               
+            defer {
+                self.isLoading = false
+                DispatchQueue.main.async {
+                    self.view?.stopRefreshing()
+                    self.view?.hideLoading()
+                }
+            }
+            
+            if let error = error {
+               DispatchQueue.main.async {
+               self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
+               }
+               return
+           }
+           
+           if let model = model {
+              let convertedModel = RatesListC_Model.convert(from: model)
+              for rate in convertedModel.rates {
+                   rate.tableType = .c
+            }
+                self.view?.insert_CTable(rates: convertedModel.rates)
+                return
+           }
+        }
+        case .none:
+            break
+        }
+}
     
-    private func isDatesValid() -> Bool {
-        let fromDateText = self.view?.getFromDate()
-        let toDateText = self.view?.getToDate()
+    private func validateDatesAndLoadData() {
         let charset = CharacterSet(charactersIn: "wybierz")
         
-        if(fromDateText?.isEmpty ?? true || toDateText?.isEmpty ?? true || fromDateText?.rangeOfCharacter(from: charset) != nil || toDateText?.rangeOfCharacter(from: charset) != nil) {
+        if let fromDateText = self.view?.getFromDate(), let toDateText = self.view?.getToDate() {
+            if(fromDateText.isEmpty || toDateText.isEmpty || fromDateText.rangeOfCharacter(from: charset) != nil || toDateText.rangeOfCharacter(from: charset) != nil) {
                 self.view?.hideLoading()
                 self.view?.stopRefreshing()
                 self.view?.showOkAlertController(title: "Błąd", message: "Jedna albo dwie daty są niepoprawne", callback: nil)
-            return false
+            return
         } else {
             let fromDate = Date(fromDateText ?? "")
             let toDate = Date(toDateText ?? "")
@@ -54,19 +137,19 @@ extension CurrencyDetailPresenter {
                 self.view?.hideLoading()
                 self.view?.stopRefreshing()
                 self.view?.showOkAlertController(title: "Błąd", message: "Data początkowa nie może być większa od końcowej", callback: nil)
-            return false
+            return
             }
         }
-        return true
+            
+        self.fetchData(from: fromDateText, to: toDateText)
+        }
     }
 }
 
 extension CurrencyDetailPresenter: CurrencyDetailPresenterProtocol {
     func didRefreshPulled() {
         self.view?.startRefreshing()
-        if(isDatesValid()){
-            self.fetchData()
-        }
+        self.validateDatesAndLoadData()
     }
     
     
@@ -87,9 +170,7 @@ extension CurrencyDetailPresenter: CurrencyDetailPresenterProtocol {
     
     func reloadData() {
         self.view?.showLoading(message: "Ładowanie")
-        if(isDatesValid()){
-            self.fetchData()
-        }
+        self.validateDatesAndLoadData()
     }
     
 }

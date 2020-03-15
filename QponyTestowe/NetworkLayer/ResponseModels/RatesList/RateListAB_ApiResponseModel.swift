@@ -1,5 +1,5 @@
 //
-//  RateListC_ApiResponseModel.swift
+//  RatesABList_ApiResponseModel.swift
 //  QponyTestowe
 //
 //  Created by Oleksandr Bambulyak on 15/03/2020.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct RateListC_ApiResponseModel: Codable {
+struct RateListAB_ApiResponseModel: Codable {
     let table: String
     let currency: String
     let code: String
-    let rates: [RateC_ApiResponseModel]
+    let rates: [RateAB_ApiResponseModel]
 }

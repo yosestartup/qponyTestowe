@@ -8,4 +8,12 @@
 
 class CurrencyDetailInteractor: BaseInteractor { }
 
-extension CurrencyDetailInteractor: CurrencyDetailInteractorProtocol { }
+extension CurrencyDetailInteractor: CurrencyDetailInteractorProtocol {
+    func fetchAB_RatesList(tableType: TableType, currencyCode: String, startDate: String, endDate: String, completion: @escaping (RateListAB_ApiResponseModel?, NetworkError?) -> Void) {
+        self.networkController.getAB_RatesTable(tableType: tableType, currencyCode: currencyCode, startDate: startDate, endDate: endDate, completion: completion)
+    }
+    
+    func fetchC_RatesList(tableType: TableType, currencyCode: String, startDate: String, endDate: String, completion: @escaping (RateListC_ApiResponseModel?, NetworkError?) -> Void) {
+        self.networkController.getC_RatesTable(tableType: tableType, currencyCode: currencyCode, startDate: startDate, endDate: endDate, completion: completion)
+    }
+}

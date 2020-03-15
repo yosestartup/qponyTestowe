@@ -30,5 +30,8 @@ protocol CurrencyDetailPresenterProtocol: class {
     func viewLoaded()
 }
 
-protocol CurrencyDetailInteractorProtocol: class { }
+protocol CurrencyDetailInteractorProtocol: class {
+    func fetchAB_RatesList(tableType: TableType, currencyCode: String, startDate: String, endDate: String, completion: @escaping (RateListAB_ApiResponseModel?, NetworkError?) -> Void)
+    func fetchC_RatesList(tableType: TableType, currencyCode: String, startDate: String, endDate: String, completion: @escaping (RateListC_ApiResponseModel?, NetworkError?) -> Void)
+}
 
