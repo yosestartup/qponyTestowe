@@ -8,11 +8,15 @@
 
 import UIKit
 
-protocol CurrencyDetailViewProtocol: class { }
+protocol CurrencyDetailViewProtocol: class {
+    func setTitle(text: String)
+}
 
 protocol CurrencyDetailWireFrameProtocol: class { }
 
-protocol CurrencyDetailPresenterProtocol: class { }
+protocol CurrencyDetailPresenterProtocol: class {
+    func viewLoaded()
+}
 
 protocol CurrencyDetailInteractorProtocol: class { }
 

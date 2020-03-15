@@ -14,6 +14,8 @@
 		B10429DA241D6EE700641A0C /* CurrencyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10429D2241D6EE700641A0C /* CurrencyDetailViewController.swift */; };
 		B10429DB241D6EE700641A0C /* CurrencyDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10429D4241D6EE700641A0C /* CurrencyDetailProtocols.swift */; };
 		B10429DC241D6EE700641A0C /* CurrencyDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10429D6241D6EE700641A0C /* CurrencyDetailInteractor.swift */; };
+		B10429E2241E299300641A0C /* CurrencyDetail_ABTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10429E1241E299300641A0C /* CurrencyDetail_ABTableViewCell.swift */; };
+		B10429E4241E29A500641A0C /* CurrencyDetail_CTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10429E3241E29A500641A0C /* CurrencyDetail_CTableViewCell.swift */; };
 		B125F8C8241C509B00DD67F3 /* CurrencyBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125F8C7241C509B00DD67F3 /* CurrencyBaseModel.swift */; };
 		B183B4052416AAD600FD1485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B183B4042416AAD600FD1485 /* AppDelegate.swift */; };
 		B183B40E2416AADD00FD1485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B183B40D2416AADD00FD1485 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		B10429D2241D6EE700641A0C /* CurrencyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyDetailViewController.swift; sourceTree = "<group>"; };
 		B10429D4241D6EE700641A0C /* CurrencyDetailProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyDetailProtocols.swift; sourceTree = "<group>"; };
 		B10429D6241D6EE700641A0C /* CurrencyDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyDetailInteractor.swift; sourceTree = "<group>"; };
+		B10429E1241E299300641A0C /* CurrencyDetail_ABTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetail_ABTableViewCell.swift; sourceTree = "<group>"; };
+		B10429E3241E29A500641A0C /* CurrencyDetail_CTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetail_CTableViewCell.swift; sourceTree = "<group>"; };
 		B125F8C7241C509B00DD67F3 /* CurrencyBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyBaseModel.swift; sourceTree = "<group>"; };
 		B183B4012416AAD600FD1485 /* QponyTestowe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QponyTestowe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B183B4042416AAD600FD1485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				B10429D2241D6EE700641A0C /* CurrencyDetailViewController.swift */,
+				B10429E1241E299300641A0C /* CurrencyDetail_ABTableViewCell.swift */,
+				B10429E3241E29A500641A0C /* CurrencyDetail_CTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -545,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10429E2241E299300641A0C /* CurrencyDetail_ABTableViewCell.swift in Sources */,
 				B183B454241787C200FD1485 /* BasePresenter.swift in Sources */,
 				B183B47924186EF100FD1485 /* CurrenciesInteractor.swift in Sources */,
 				B183B47F24190AA400FD1485 /* CurrencyC_Model.swift in Sources */,
@@ -561,6 +568,7 @@
 				B183B47524186EF100FD1485 /* CurrenciesDataSource.swift in Sources */,
 				B183B45A2417882D00FD1485 /* BaseViewController.swift in Sources */,
 				B183B45C24178A6A00FD1485 /* Currencies+DIResolver.swift in Sources */,
+				B10429E4241E29A500641A0C /* CurrencyDetail_CTableViewCell.swift in Sources */,
 				B183B47424186EF100FD1485 /* CurrenciesWireFrame.swift in Sources */,
 				B183B4512417879F00FD1485 /* BaseWireFrame.swift in Sources */,
 				B183B42F24177E0C00FD1485 /* NetworkCurrencyRequestProtocol.swift in Sources */,

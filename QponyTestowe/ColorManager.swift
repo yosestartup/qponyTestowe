@@ -17,6 +17,10 @@ class ColorManager {
     static var darkBlue: UIColor {
         return UIColor.RGB(r: 34, g: 53, b: 80)
     }
+    
+    static var standardBlue: UIColor {
+           return UIColor.RGB(r: 0, g: 122, b: 255)
+    }
 }
 
 extension UIColor {
