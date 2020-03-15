@@ -46,11 +46,9 @@ extension CurrencyDetailPresenter {
             }
             
             if let error = error {
-               DispatchQueue.main.async {
-               self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
-               }
-               return
-           }
+                self.view?.showOkAlertController(title: "Błąd", message: error.description, callback: nil)
+                return
+            }
            
            if let model = model {
               let convertedModel = RatesListAB_Model.convert(from: model)
@@ -74,11 +72,9 @@ extension CurrencyDetailPresenter {
             }
             
             if let error = error {
-               DispatchQueue.main.async {
-               self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
-               }
-               return
-           }
+                self.view?.showOkAlertController(title: "Błąd", message: error.description, callback: nil)
+                return
+            }
            
            if let model = model {
               let convertedModel = RatesListAB_Model.convert(from: model)
@@ -101,11 +97,9 @@ extension CurrencyDetailPresenter {
             }
             
             if let error = error {
-               DispatchQueue.main.async {
-               self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
-               }
-               return
-           }
+                self.view?.showOkAlertController(title: "Błąd", message: error.description, callback: nil)
+                return
+            }
            
            if let model = model {
               let convertedModel = RatesListC_Model.convert(from: model)

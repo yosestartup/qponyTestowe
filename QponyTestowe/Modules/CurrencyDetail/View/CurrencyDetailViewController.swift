@@ -114,8 +114,8 @@ class CurrencyDetailViewController: BaseViewController {
         self.tableView.refreshControl = self.refreshControl
         self.tableView.separatorStyle = .none
         self.tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-        self.tableView.register(CurrencyDetail_ABTableCell.self, forCellReuseIdentifier: "CurrencyDetail_ABTableCell")
-        self.tableView.register(CurrencyDetail_CTableCell.self, forCellReuseIdentifier: "CurrencyDetail_CTableCell")
+        self.tableView.register(CurrencyDetailAB_TableCell.self, forCellReuseIdentifier: "CurrencyDetail_ABTableCell")
+        self.tableView.register(CurrencyDetailC_TableCell.self, forCellReuseIdentifier: "CurrencyDetail_CTableCell")
         self.tableView.snp.makeConstraints { (make) in
             make.top.equalTo(self.searchButton.snp.bottom).offset(5.withRatio())
             make.left.right.bottom.equalToSuperview()
@@ -231,15 +231,5 @@ extension CurrencyDetailViewController: UITableViewDelegate, UITableViewDataSour
 extension CurrencyDetailViewController: CurrencyDetailDataSourceDelegate {
     func reloadData() {
         self.tableView.reloadData()
-    }
-}
-
-extension Date {
-    init(_ dateString:String) {
-        let dateStringFormatter = DateFormatter()
-        dateStringFormatter.dateFormat = "yyyy-MM-dd"
-        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
-        let date = dateStringFormatter.date(from: dateString)!
-        self.init(timeInterval:0, since:date)
     }
 }

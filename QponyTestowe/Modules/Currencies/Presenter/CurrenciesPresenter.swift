@@ -78,10 +78,8 @@ extension CurrenciesPresenter {
             }
             
             if let error = error {
-                DispatchQueue.main.async {
-                self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
-                }
-                return
+               self.view?.showOkAlertController(title: "Błąd", message: error.description, callback: nil)
+               return
             }
             
             if let model = model {
@@ -105,10 +103,8 @@ extension CurrenciesPresenter {
              }
              
              if let error = error {
-                 DispatchQueue.main.async {
-                 self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
-                }
-                 return
+                self.view?.showOkAlertController(title: "Błąd", message: error.description, callback: nil)
+                return
              }
              
              if let model = model {
@@ -133,10 +129,8 @@ extension CurrenciesPresenter {
              }
              
              if let error = error {
-                 DispatchQueue.main.async {
-                 self.view?.showOkAlertController(title: "Error", message: error.localizedDescription, callback: nil)
-                }
-                 return
+                self.view?.showOkAlertController(title: "Błąd", message: error.description, callback: nil)
+                return
              }
              
              if let model = model {

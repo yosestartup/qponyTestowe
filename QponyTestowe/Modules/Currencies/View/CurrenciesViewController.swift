@@ -46,8 +46,8 @@ class CurrenciesViewController: BaseViewController {
         self.currenciesTable.refreshControl = self.refreshControl
         self.currenciesTable.separatorStyle = .none
         self.currenciesTable.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-        self.currenciesTable.register(CurrencyABTableCell.self, forCellReuseIdentifier: "CurrencyABTableCell")
-        self.currenciesTable.register(CurrencyCTableCell.self, forCellReuseIdentifier: "CurrencyCTableCell")
+        self.currenciesTable.register(CurrencyAB_TableCell.self, forCellReuseIdentifier: "CurrencyABTableCell")
+        self.currenciesTable.register(CurrencyC_TableCell.self, forCellReuseIdentifier: "CurrencyCTableCell")
         
         self.view.addSubview(self.segmentedControl)
         self.view.addSubview(self.currenciesTable)

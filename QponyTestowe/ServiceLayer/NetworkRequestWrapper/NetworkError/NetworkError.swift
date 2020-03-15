@@ -40,7 +40,7 @@ struct NetworkErrorStruct: NetworkError {
     var plainBody: String?
     var detailMessage: String?
 
-    init(statusCode: Int?, data: Data?) {
+    init(statusCode: Int?, description: String?) {
         guard let statusCode = statusCode else {
             return
         }
@@ -48,10 +48,12 @@ struct NetworkErrorStruct: NetworkError {
         self.statusCode = statusCode
         self.errorCode = statusCode
         self.setNetworkErrorType(from: statusCode)
+        self.description = description
     }
 
     init(error: NSError) {
         self.description = error.localizedDescription
+        self.errorCode = error.code
     }
 
     private mutating func setNetworkErrorType(from statusCode: Int) {

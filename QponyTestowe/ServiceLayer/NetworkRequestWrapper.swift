@@ -51,21 +51,26 @@ class NetworkRequestWrapper: NetworkRequestWrapperProtocol {
 
             if error != nil || data == nil {
                 let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
-                let error = NSError(domain: error?.localizedDescription ?? "Undefined error", code: statusCode, userInfo: nil)
-                let networkError = NetworkErrorStruct.init(error: error)
-                completion(statusCode, nil, networkError)
+                let error = NetworkErrorStruct(statusCode: statusCode, description: error?.localizedDescription)
+                completion(statusCode, nil, error)
                 return
             }
 
-            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
-                let statusCode = 0
-                let error = NSError(domain: error?.localizedDescription ?? "Undefined error", code: 0, userInfo: nil)
-                let networkError = NetworkErrorStruct.init(error: error)
-                completion(statusCode, nil, networkError)
-                return
+            guard let tempResponse = response as? HTTPURLResponse, (200...299).contains(tempResponse.statusCode) else {
+                let errorResponse = response as? HTTPURLResponse
+                if let data = data {
+                    let errorStr = String(decoding: data, as: UTF8.self)
+                    let error = NetworkErrorStruct(statusCode: errorResponse?.statusCode, description:  errorStr)
+                    completion(errorResponse?.statusCode ?? 0, nil, error)
+                    return
+                } else {
+                    let error = NetworkErrorStruct(statusCode: errorResponse?.statusCode, description: "Unknown error")
+                    completion(errorResponse?.statusCode ?? 0, nil, error)
+                    return
+                }
             }
 
-            completion(response.statusCode, data, nil)
+            completion(tempResponse.statusCode, data, nil)
         }
 
         task.resume()

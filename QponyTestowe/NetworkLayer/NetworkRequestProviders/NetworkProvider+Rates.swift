@@ -20,12 +20,11 @@ extension NetworkRequestProvider: NetworkRatesRequestProtocol {
                 return
             }
             guard let data = data else {
-                let error = NetworkErrorStruct(statusCode: nil, data: nil)
-                    completion(nil, error)
-                    return
-                }
+                let error = NetworkErrorStruct(statusCode: error?.statusCode, description: error?.localizedDescription)
+                   completion(nil, error)
+                   return
+            }
             do {
-                
                 let jsonModels = try jsonDecoder.decode(RateListAB_ApiResponseModel.self, from: data)
                 completion(jsonModels, nil)
             } catch {
@@ -45,7 +44,7 @@ extension NetworkRequestProvider: NetworkRatesRequestProtocol {
                 return
             }
             guard let data = data else {
-                let error = NetworkErrorStruct(statusCode: nil, data: nil)
+                let error = NetworkErrorStruct(statusCode: error?.statusCode, description: error?.localizedDescription)
                     completion(nil, error)
                     return
                 }

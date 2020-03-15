@@ -52,15 +52,15 @@ class CurrencyDetailDataSource {
     func getCell(for tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         switch (dataSourceType) {
             case .a:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyDetail_ABTableCell", for: indexPath) as? CurrencyDetail_ABTableCell else { return UITableViewCell() }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyDetail_ABTableCell", for: indexPath) as? CurrencyDetailAB_TableCell else { return UITableViewCell() }
                 cell.display(self.AB_rates[indexPath.row])
                 return cell
             case .b:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyDetail_ABTableCell", for: indexPath) as? CurrencyDetail_ABTableCell else { return UITableViewCell() }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyDetail_ABTableCell", for: indexPath) as? CurrencyDetailAB_TableCell else { return UITableViewCell() }
                 cell.display(self.AB_rates[indexPath.row])
                 return cell
             case .c:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyDetail_CTableCell", for: indexPath) as? CurrencyDetail_CTableCell else { return UITableViewCell() }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyDetail_CTableCell", for: indexPath) as? CurrencyDetailC_TableCell else { return UITableViewCell() }
                 cell.display(self.C_rates[indexPath.row])
                 return cell
             default:

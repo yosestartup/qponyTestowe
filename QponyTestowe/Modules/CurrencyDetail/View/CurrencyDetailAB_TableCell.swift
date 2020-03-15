@@ -1,5 +1,5 @@
 //
-//  CurrencyDetail_CTableViewCell.swift
+//  CurrencyDetail_ABTableViewCell.swift
 //  QponyTestowe
 //
 //  Created by Oleksandr Bambulyak on 15/03/2020.
@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 import SnapKit
 
-class CurrencyDetail_CTableCell: UITableViewCell {
+class CurrencyDetailAB_TableCell: UITableViewCell {
     
-    private var currencyBidLabel: UILabel = UILabel()
-    private var currencyAskLabel: UILabel = UILabel()
+    private var currencyMidLabel: UILabel = UILabel()
     private let tableNumberLabel: UILabel = UILabel()
     private var effectiveDateLabel: UILabel = UILabel()
     private let cornerRadius: CGFloat = 12.0.withRatio()
@@ -43,8 +42,7 @@ class CurrencyDetail_CTableCell: UITableViewCell {
         container.layer.masksToBounds = true
 
         self.contentView.addSubview(container)
-        container.addSubview(self.currencyBidLabel)
-        container.addSubview(self.currencyAskLabel)
+        container.addSubview(self.currencyMidLabel)
         container.addSubview(self.tableNumberLabel)
         container.addSubview(self.effectiveDateLabel)
         
@@ -55,23 +53,16 @@ class CurrencyDetail_CTableCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-14.withRatio())
         }
         
-        self.currencyBidLabel.font = UIFont.systemFont(ofSize: 16.withRatio(), weight: .medium)
-        self.currencyBidLabel.textColor = ColorManager.darkBlue
-        self.currencyBidLabel.snp.makeConstraints { (make) in
+        self.currencyMidLabel.font = UIFont.systemFont(ofSize: 16.withRatio(), weight: .medium)
+        self.currencyMidLabel.textColor = ColorManager.darkBlue
+        self.currencyMidLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(18.withRatio())
-            make.left.equalToSuperview().offset(15.withRatio())
-        }
-        
-        self.currencyAskLabel.font = UIFont.systemFont(ofSize: 16.withRatio(), weight: .medium)
-        self.currencyAskLabel.textColor = ColorManager.darkBlue
-        self.currencyAskLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.currencyBidLabel.snp.bottom).offset(5.withRatio())
             make.left.equalToSuperview().offset(15.withRatio())
         }
         
         self.tableNumberLabel.font = UIFont.systemFont(ofSize: 16.withRatio(), weight: .regular)
         self.tableNumberLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.currencyAskLabel.snp.bottom).offset(15.withRatio())
+            make.top.equalTo(self.currencyMidLabel.snp.bottom).offset(15.withRatio())
             make.left.equalToSuperview().offset(15.withRatio())
         }
         
@@ -92,10 +83,9 @@ class CurrencyDetail_CTableCell: UITableViewCell {
     }
 }
 
-extension CurrencyDetail_CTableCell {
-    func display(_ model: RateC_Model) {
-        self.currencyBidLabel.text = "kupno: " + String(model.bid)
-        self.currencyAskLabel.text = "sprzedaż: " + String(model.ask)
+extension CurrencyDetailAB_TableCell {
+    func display(_ model: RateAB_Model) {
+        self.currencyMidLabel.text = "średni: " + String(model.mid)
         self.tableNumberLabel.text = "numer tabeli: " + model.tabelNumber
         self.effectiveDateLabel.text = "publikacja: " + model.effectiveDate
     }

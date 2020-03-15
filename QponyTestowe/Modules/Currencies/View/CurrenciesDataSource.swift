@@ -62,15 +62,15 @@ class CurrenciesDataSource {
     func getCell(for tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         switch (dataSourceType) {
             case .a:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyABTableCell", for: indexPath) as? CurrencyABTableCell else { return UITableViewCell() }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyABTableCell", for: indexPath) as? CurrencyAB_TableCell else { return UITableViewCell() }
                 cell.display(self.AB_currencies[indexPath.row])
                 return cell
             case .b:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyABTableCell", for: indexPath) as? CurrencyABTableCell else { return UITableViewCell() }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyABTableCell", for: indexPath) as? CurrencyAB_TableCell else { return UITableViewCell() }
                 cell.display(self.AB_currencies[indexPath.row])
                 return cell
             case .c:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyCTableCell", for: indexPath) as? CurrencyCTableCell else { return UITableViewCell() }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyCTableCell", for: indexPath) as? CurrencyC_TableCell else { return UITableViewCell() }
                 cell.display(self.C_currencies[indexPath.row])
                 return cell
             default:

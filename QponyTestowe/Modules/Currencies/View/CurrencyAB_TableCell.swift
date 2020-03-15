@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class CurrencyABTableCell: UITableViewCell {
+class CurrencyAB_TableCell: UITableViewCell {
     
     private var currencyCodeLabel: UILabel = UILabel()
     private var currencyNameLabel: UILabel = UILabel()
@@ -91,7 +91,7 @@ class CurrencyABTableCell: UITableViewCell {
     }
 }
 
-extension CurrencyABTableCell {
+extension CurrencyAB_TableCell {
     func display(_ model: CurrencyAB_Model) {
         self.currencyCodeLabel.text = model.code
         self.currencyNameLabel.text = model.currency

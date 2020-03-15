@@ -29,7 +29,7 @@ extension NetworkRequestProvider: NetworkCurrencyRequestProtocol {
                 return
             }
             guard let data = data else {
-                let error = NetworkErrorStruct(statusCode: nil, data: nil)
+                let error = NetworkErrorStruct(statusCode: error?.statusCode, description: error?.localizedDescription)
                     completion(nil, error)
                     return
                 }
@@ -58,7 +58,7 @@ extension NetworkRequestProvider: NetworkCurrencyRequestProtocol {
                 return
             }
             guard let data = data else {
-                let error = NetworkErrorStruct(statusCode: nil, data: nil)
+                let error = NetworkErrorStruct(statusCode: error?.statusCode, description: error?.localizedDescription)
                     completion(nil, error)
                     return
                 }
