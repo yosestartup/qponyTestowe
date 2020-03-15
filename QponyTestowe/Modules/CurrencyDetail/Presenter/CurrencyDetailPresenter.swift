@@ -125,24 +125,29 @@ extension CurrencyDetailPresenter {
         let charset = CharacterSet(charactersIn: "wybierz")
         
         if let fromDateText = self.view?.getFromDate(), let toDateText = self.view?.getToDate() {
+            
             if(fromDateText.isEmpty || toDateText.isEmpty || fromDateText.rangeOfCharacter(from: charset) != nil || toDateText.rangeOfCharacter(from: charset) != nil) {
                 self.view?.hideLoading()
                 self.view?.stopRefreshing()
                 self.view?.showOkAlertController(title: "Błąd", message: "Jedna albo dwie daty są niepoprawne", callback: nil)
-            return
-        } else {
-            let fromDate = Date(fromDateText ?? "")
-            let toDate = Date(toDateText ?? "")
+                return
+                
+            } else {
+            let fromDate = Date(fromDateText)
+            let toDate = Date(toDateText)
             if(toDate<fromDate) {
                 self.view?.hideLoading()
                 self.view?.stopRefreshing()
                 self.view?.showOkAlertController(title: "Błąd", message: "Data początkowa nie może być większa od końcowej", callback: nil)
-            return
+                return
             }
         }
             
         self.fetchData(from: fromDateText, to: toDateText)
+            
         }
+        self.view?.hideLoading()
+        self.view?.stopRefreshing()
     }
 }
 
