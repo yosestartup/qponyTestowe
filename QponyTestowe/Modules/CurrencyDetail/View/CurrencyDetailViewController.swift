@@ -23,7 +23,9 @@ class CurrencyDetailViewController: BaseViewController {
     private let toLabel = UILabel()
     private let toDateTextField = UITextField()
     private let searchButton = UIButton()
+    private let refreshControl = UIRefreshControl()
     private let tableView = UITableView()
+    private var dataSource: CurrencyDetailDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,11 @@ class CurrencyDetailViewController: BaseViewController {
         
         self.title = "Currency detail"
         self.view.backgroundColor = UIColor.white
+        
+        self.refreshControl.addTarget(self, action: #selector(refreshDidPulled), for: .valueChanged)
+        
+        self.dataSource = CurrencyDetailDataSource()
+        self.dataSource.delegate = self
         
         self.view.addSubview(self.fromDateLabel)
         self.view.addSubview(self.toLabel)
@@ -60,6 +67,8 @@ class CurrencyDetailViewController: BaseViewController {
         self.fromDateTextField.text = "wybierz datę >"
         self.fromDateTextField.textColor = ColorManager.standardBlue
         self.datePicker.datePickerMode = .date
+        self.datePicker.maximumDate = Date()
+        self.datePicker.minimumDate = Date("2002-01-02")
         self.fromDateTextField.inputAccessoryView = getDateToolbar(sender: self.fromDateTextField)
         self.fromDateTextField.inputView = self.datePicker
         self.fromDateTextField.delegate = self
@@ -99,6 +108,14 @@ class CurrencyDetailViewController: BaseViewController {
             make.height.equalTo(40.withRatio())
         }
         
+        self.tableView.allowsSelection = false
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.refreshControl = self.refreshControl
+        self.tableView.separatorStyle = .none
+        self.tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        self.tableView.register(CurrencyDetail_ABTableCell.self, forCellReuseIdentifier: "CurrencyDetail_ABTableCell")
+        self.tableView.register(CurrencyDetail_CTableCell.self, forCellReuseIdentifier: "CurrencyDetail_CTableCell")
         self.tableView.snp.makeConstraints { (make) in
             make.top.equalTo(self.searchButton.snp.bottom).offset(5.withRatio())
             make.left.right.bottom.equalToSuperview()
@@ -121,7 +138,7 @@ class CurrencyDetailViewController: BaseViewController {
     }
     
     @objc private func didClickSearchButton() {
-        self.presenter.didClickSearchButton(from: self.fromDateTextField.text ?? "", to: self.toDateTextField.text ?? "")
+        self.presenter.didClickSearchButton()
     }
     
     @objc private func doneFromTextField() {
@@ -142,6 +159,9 @@ class CurrencyDetailViewController: BaseViewController {
         self.view.endEditing(true)
     }
     
+    @objc private func refreshDidPulled(sender: UIRefreshControl) {
+        self.presenter.didRefreshPulled()
+    }
 }
 
 extension CurrencyDetailViewController: UITextFieldDelegate {
@@ -149,7 +169,77 @@ extension CurrencyDetailViewController: UITextFieldDelegate {
 }
 
 extension CurrencyDetailViewController: CurrencyDetailViewProtocol {
+    func getFromDate() -> String {
+        return self.fromDateTextField.text ?? ""
+    }
+    
+    func getToDate() -> String {
+        return self.toDateTextField.text ?? ""
+    }
+    
+    func insert_ABTable(rates: [RateAB_Model]) {
+        if let tableType = rates[0].tableType {
+            self.dataSource.changeDataSourceType(tableType)
+            self.dataSource.insertABItems(rates)
+        }
+    }
+    
+    func insert_CTable(rates: [RateC_Model]) {
+        self.dataSource.changeDataSourceType(.c)
+        self.dataSource.insertCItems(rates)
+    }
+    
+    func startRefreshing() {
+        if !self.refreshControl.isRefreshing {
+            self.refreshControl.beginRefreshing()
+        }
+    }
+    
+    func stopRefreshing() {
+        if self.refreshControl.isRefreshing {
+             self.refreshControl.endRefreshing()
+        }
+    }
+    
     func setTitle(text: String) {
         self.title = text
+    }
+}
+
+extension CurrencyDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.dataSource.getNumberOfSections()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120.withRatio()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSource.getNumberOfItems(in: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return self.dataSource.getCell(for: tableView, indexPath: indexPath)
+    }    
+}
+
+extension CurrencyDetailViewController: CurrencyDetailDataSourceDelegate {
+    func reloadData() {
+        self.tableView.reloadData()
+    }
+}
+
+extension Date {
+    init(_ dateString:String) {
+        let dateStringFormatter = DateFormatter()
+        dateStringFormatter.dateFormat = "yyyy-MM-dd"
+        dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
+        let date = dateStringFormatter.date(from: dateString)!
+        self.init(timeInterval:0, since:date)
     }
 }

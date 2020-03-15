@@ -6,6 +6,8 @@
 //  Copyright © 2020 Oleksandr Bambulyak. All rights reserved.
 //
 
+import Foundation
+
 class CurrencyDetailPresenter: BasePresenter {
 
     weak var view: CurrencyDetailViewProtocol?
@@ -13,6 +15,7 @@ class CurrencyDetailPresenter: BasePresenter {
     private var interactor: CurrencyDetailInteractorProtocol
     private var currencyModel: CurrencyBaseModel!
     private var currencyTableType: TableType!
+    private var isLoading: Bool = false
     
     init(currencyModel: CurrencyBaseModel, view: CurrencyDetailViewProtocol, wireFrame: CurrencyDetailWireFrameProtocol, interactor: CurrencyDetailInteractorProtocol) {
         self.view = view
@@ -23,13 +26,52 @@ class CurrencyDetailPresenter: BasePresenter {
     }
 }
 
-extension CurrencyDetailPresenter: CurrencyDetailPresenterProtocol {
+extension CurrencyDetailPresenter {
     
-    func didClickSearchButton(from: String, to: String) {
-        if(from.isEmpty || to.isEmpty) {
-            self.view?.showOkAlertController(title: "Błąd", message: "Jedna albo dwie daty są niepoprawne", callback: nil)
-            return
+    private func fetchData() {
+        guard self.isLoading == false else { return }
+        
+        self.isLoading = true
+    
+            
+        //self.view?.insert_ABTable(rates: [rateABModel1, rateABModel2])
+    }
+    
+    private func isDatesValid() -> Bool {
+        let fromDateText = self.view?.getFromDate()
+        let toDateText = self.view?.getToDate()
+        let charset = CharacterSet(charactersIn: "wybierz")
+        
+        if(fromDateText?.isEmpty ?? true || toDateText?.isEmpty ?? true || fromDateText?.rangeOfCharacter(from: charset) != nil || toDateText?.rangeOfCharacter(from: charset) != nil) {
+                self.view?.hideLoading()
+                self.view?.stopRefreshing()
+                self.view?.showOkAlertController(title: "Błąd", message: "Jedna albo dwie daty są niepoprawne", callback: nil)
+            return false
+        } else {
+            let fromDate = Date(fromDateText ?? "")
+            let toDate = Date(toDateText ?? "")
+            if(toDate<fromDate) {
+                self.view?.hideLoading()
+                self.view?.stopRefreshing()
+                self.view?.showOkAlertController(title: "Błąd", message: "Data początkowa nie może być większa od końcowej", callback: nil)
+            return false
+            }
         }
+        return true
+    }
+}
+
+extension CurrencyDetailPresenter: CurrencyDetailPresenterProtocol {
+    func didRefreshPulled() {
+        self.view?.startRefreshing()
+        if(isDatesValid()){
+            self.fetchData()
+        }
+    }
+    
+    
+    func didClickSearchButton() {
+        self.reloadData()
     }
     
     func viewLoaded() {
@@ -42,4 +84,13 @@ extension CurrencyDetailPresenter: CurrencyDetailPresenterProtocol {
         }
         self.view?.setTitle(text: currencyName)
     }
+    
+    func reloadData() {
+        self.view?.showLoading(message: "Ładowanie")
+        if(isDatesValid()){
+            self.fetchData()
+        }
+    }
+    
 }
+

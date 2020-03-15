@@ -83,11 +83,10 @@ class CurrencyDetail_ABTableCell: UITableViewCell {
     }
 }
 
-extension CurrencyABTableCell {
-//    func display(_ model: CurrencyAB_Model) {
-//        self.currencyCodeLabel.text = model.code
-//        self.currencyNameLabel.text = model.currency
-//        self.currencyMidLabel.text = "średni: " + String(model.mid)
-//        self.effectiveDateLabel.text = "publikacja: " + String(model.effectiveDate)
-//    }
+extension CurrencyDetail_ABTableCell {
+    func display(_ model: RateAB_Model) {
+        self.currencyMidLabel.text = "średni: " + String(model.mid)
+        self.tableNumberLabel.text = "numer tabeli: " + model.tabelNumber
+        self.effectiveDateLabel.text = "publikacja: " + model.effectiveDate
+    }
 }

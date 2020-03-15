@@ -10,13 +10,23 @@ import UIKit
 
 protocol CurrencyDetailViewProtocol: class {
     func setTitle(text: String)
+    func startRefreshing()
+    func stopRefreshing()
+    func showLoading(message: String?)
+    func hideLoading()
     func showOkAlertController(title: String?, message: String?, callback: (() -> Void)?)
+    func insert_ABTable(rates: [RateAB_Model])
+    func insert_CTable(rates: [RateC_Model])
+    func getFromDate() -> String
+    func getToDate() -> String
 }
 
 protocol CurrencyDetailWireFrameProtocol: class { }
 
 protocol CurrencyDetailPresenterProtocol: class {
-    func didClickSearchButton(from: String, to: String)
+    func didClickSearchButton()
+    func reloadData()
+    func didRefreshPulled()
     func viewLoaded()
 }
 
